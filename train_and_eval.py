@@ -20,7 +20,7 @@ def getTrainingAccuracy(y_pred, y_true, opt=None):
     y_true.to(opt.device)
     
     # Discretize the predictions
-    y_pred = torch.where(y_pred > 0, torch.ones(y_pred.shape).to(opt.evice), torch.zeros(y_pred.shape).to(opt.device)).to(opt.device)
+    y_pred = torch.where(y_pred > 0, torch.ones(y_pred.shape).to(opt.device), torch.zeros(y_pred.shape).to(opt.device)).to(opt.device)
     y_pred = torch.where(y_pred == 0, torch.ones(y_pred.shape).to(opt.device) * -1, y_pred).to(opt.device)
     
     # Save the predictions
@@ -92,8 +92,8 @@ def evaluate(val_dataloader, model, model_name, criterion, epoch, opt):
         loss += criterion(y_pred, y)
         
         # Discretize the predictions
-        y_pred = torch.where(y_pred > 0, torch.ones(y_pred.shape).to(opt.evice), torch.zeros(y_pred.shape).to(opt.evice)).to(opt.device)
-        y_pred = torch.where(y_pred == 0, torch.ones(y_pred.shape).to(opt.evice) * -1, y_pred).to(opt.device)
+        y_pred = torch.where(y_pred > 0, torch.ones(y_pred.shape).to(opt.device), torch.zeros(y_pred.shape).to(opt.device)).to(opt.device)
+        y_pred = torch.where(y_pred == 0, torch.ones(y_pred.shape).to(opt.device) * -1, y_pred).to(opt.device)
         
         # Save the predictions
         targets.append(y)
