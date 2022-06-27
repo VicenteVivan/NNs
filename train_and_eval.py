@@ -20,8 +20,8 @@ def getTrainingAccuracy(y_pred, y_true, opt=None):
     y_true.to(opt.device)
     
     # Discretize the predictions
-    y_pred = torch.where(y_pred > 0, torch.ones(y_pred.shape), torch.zeros(y_pred.shape))
-    y_pred = torch.where(y_pred == 0, torch.ones(y_pred.shape) * -1, y_pred) 
+    y_pred = torch.where(y_pred > 0, torch.ones(y_pred.shape), torch.zeros(y_pred.shape)).to(opt.device)
+    y_pred = torch.where(y_pred == 0, torch.ones(y_pred.shape) * -1, y_pred) .to(opt.device)
     
     # Save the predictions
     acc = accuracy_score(y_true, y_pred)
@@ -66,7 +66,7 @@ def train(train_dataloader, model, model_name, criterion, optimizer, opt, epoch,
         
         if i % val_cycle == 0:
             wandb.log({"Training Loss" : {model_name: loss.item()}})
-            #wandb.log({"Training Accuracy" : {model_name: getTrainingAccuracy(preds, y, opt)}})
+            wandb.log({"Training Accuracy" : {model_name: getTrainingAccuracy(preds, y, opt)}})
             bar.set_description("Epoch {} Loss: {:.4f}".format(epoch, epoch_loss))
 
         if val_dataloader != None and i % (val_cycle * 5) == 0:
@@ -92,8 +92,8 @@ def evaluate(val_dataloader, model, model_name, criterion, epoch, opt):
         loss += criterion(y_pred, y)
         
         # Discretize the predictions
-        y_pred = torch.where(y_pred > 0, torch.ones(y_pred.shape), torch.zeros(y_pred.shape))
-        y_pred = torch.where(y_pred == 0, torch.ones(y_pred.shape) * -1, y_pred) 
+        y_pred = torch.where(y_pred > 0, torch.ones(y_pred.shape), torch.zeros(y_pred.shape)).to(opt.device)
+        y_pred = torch.where(y_pred == 0, torch.ones(y_pred.shape) * -1, y_pred).to(opt.device)
         
         # Save the predictions
         targets.append(y)
