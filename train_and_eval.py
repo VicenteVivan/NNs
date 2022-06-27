@@ -20,8 +20,8 @@ def getTrainingAccuracy(y_pred, y_true, opt=None):
     y_true.to(opt.device)
     
     # Discretize the predictions
-    y_pred = torch.where(y_pred > 0, torch.ones(y_pred.shape), torch.zeros(y_pred.shape)).to(opt.device)
-    y_pred = torch.where(y_pred == 0, torch.ones(y_pred.shape) * -1, y_pred) .to(opt.device)
+    y_pred = torch.where(y_pred > 0, torch.ones(y_pred.shape).cuda(), torch.zeros(y_pred.shape).cuda()).to(opt.device)
+    y_pred = torch.where(y_pred == 0, torch.ones(y_pred.shape).cuda() * -1, y_pred) .to(opt.device)
     
     # Save the predictions
     acc = accuracy_score(y_true, y_pred)
@@ -92,8 +92,8 @@ def evaluate(val_dataloader, model, model_name, criterion, epoch, opt):
         loss += criterion(y_pred, y)
         
         # Discretize the predictions
-        y_pred = torch.where(y_pred > 0, torch.ones(y_pred.shape), torch.zeros(y_pred.shape)).to(opt.device)
-        y_pred = torch.where(y_pred == 0, torch.ones(y_pred.shape) * -1, y_pred).to(opt.device)
+        y_pred = torch.where(y_pred > 0, torch.ones(y_pred.shape).cuda(), torch.zeros(y_pred.shape).cuda()).to(opt.device)
+        y_pred = torch.where(y_pred == 0, torch.ones(y_pred.shape).cuda() * -1, y_pred).to(opt.device)
         
         # Save the predictions
         targets.append(y)
