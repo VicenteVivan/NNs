@@ -1,0 +1,24 @@
+Outputting loss every 100 batches
+Validating every 500 batches
+Starting Epoch 0
+
+Epoch 0 Loss: 0.9933:   3% 1/32 [00:03<01:33,  3.02s/it]
+Epoch 0 Loss: 0.9933: 100% 32/32 [00:03<00:00,  8.68it/s]
+  0% 0/8 [00:00<?, ?it/s]
+Accuracy is 0.5245
+Outputting loss every 100 batches
+Validating every 500 batches
+100% 8/8 [00:03<00:00,  2.40it/s]
+  0% 0/32 [00:00<?, ?it/s]
+Epoch 1 Loss: 0.9885: 100% 32/32 [00:03<00:00, 10.02it/s]
+
+ 12% 1/8 [00:02<00:20,  2.99s/it]
+Accuracy is 0.5525
+Outputting loss every 100 batches
+Validating every 500 batches
+100% 8/8 [00:03<00:00,  2.25it/s]
+  0% 0/32 [00:00<?, ?it/s]
+Epoch 2 Loss: 0.9830: 100% 32/32 [00:03<00:00, 10.23it/s]
+  0% 0/8 [00:00<?, ?it/s]
+
+100% 8/8 [00:02<00:00,  2.77it/s]

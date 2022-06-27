@@ -1,0 +1,67 @@
+Outputting loss every 100 batches
+Validating every 500 batches
+Starting Epoch 0
+  0% 0/32 [00:00<?, ?it/s]
+
+Epoch 0 Loss: 1.0118: 100% 32/32 [00:03<00:00,  8.68it/s]
+  0% 0/8 [00:00<?, ?it/s]
+Accuracy is 0.751
+Outputting loss every 100 batches
+Validating every 500 batches
+100% 8/8 [00:03<00:00,  2.57it/s]
+
+Epoch 1 Loss: 0.7314:   6% 2/32 [00:02<00:31,  1.03s/it]
+Epoch 1 Loss: 0.7314: 100% 32/32 [00:02<00:00, 10.93it/s]
+  0% 0/8 [00:00<?, ?it/s]
+Accuracy is 0.7915
+Outputting loss every 100 batches
+Validating every 500 batches
+100% 8/8 [00:02<00:00,  2.87it/s]
+
+Epoch 2 Loss: 0.6349:  16% 5/32 [00:02<00:09,  2.72it/s]
+Epoch 2 Loss: 0.6349: 100% 32/32 [00:03<00:00, 10.62it/s]
+
+ 75% 6/8 [00:03<00:00,  2.65it/s]
+Accuracy is 0.8165
+Outputting loss every 100 batches
+Validating every 500 batches
+100% 8/8 [00:03<00:00,  2.30it/s]
+
+Epoch 3 Loss: 0.5452:  69% 22/32 [00:03<00:01,  8.82it/s]
+Epoch 3 Loss: 0.5452: 100% 32/32 [00:04<00:00,  7.88it/s]
+100% 8/8 [00:03<00:00,  2.23it/s]
+  0% 0/32 [00:00<?, ?it/s]
+Accuracy is 0.8075
+Outputting loss every 100 batches
+Validating every 500 batches
+Epoch 4 Loss: 0.4933: 100% 32/32 [00:03<00:00, 10.13it/s]
+  0% 0/8 [00:00<?, ?it/s]
+100% 8/8 [00:03<00:00,  2.25it/s]
+  0% 0/32 [00:00<?, ?it/s]
+Accuracy is 0.8165
+Outputting loss every 100 batches
+Validating every 500 batches
+Starting Epoch 5
+Epoch 5 Loss: 0.4915: 100% 32/32 [00:03<00:00, 10.25it/s]
+100% 8/8 [00:03<00:00,  2.30it/s]
+  0% 0/32 [00:00<?, ?it/s]
+Accuracy is 0.815
+Outputting loss every 100 batches
+Validating every 500 batches
+Epoch 6 Loss: 0.4580: 100% 32/32 [00:03<00:00,  9.67it/s]
+  0% 0/8 [00:00<?, ?it/s]
+
+100% 8/8 [00:03<00:00,  2.21it/s]
+  0% 0/32 [00:00<?, ?it/s]
+Accuracy is 0.808
+Outputting loss every 100 batches
+Validating every 500 batches
+Epoch 7 Loss: 0.4406: 100% 32/32 [00:02<00:00, 10.91it/s]
+  0% 0/8 [00:00<?, ?it/s]
+100% 8/8 [00:03<00:00,  2.50it/s]
+  0% 0/32 [00:00<?, ?it/s]
+Accuracy is 0.818
+Outputting loss every 100 batches
+Validating every 500 batches
+Epoch 8 Loss: 0.4475: 100% 32/32 [00:03<00:00, 10.55it/s]
+  0% 0/8 [00:00<?, ?it/s]

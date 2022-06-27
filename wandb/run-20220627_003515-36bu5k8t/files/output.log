@@ -1,0 +1,7 @@
+Loaded data, total number of samples: 8000
+Loaded data, total number of samples: 2000
+[34m[1mwandb[39m[22m: [33mWARNING[39m Calling wandb.run.save without any arguments is deprecated.Changes to attributes are automatically persisted.
+Traceback (most recent call last):
+  File "/Users/vicentevivanco/Desktop/Research/Mathematics/NNs/main.py", line 52, in <module>
+    loss = train(train_dataloader=train_dataloader, model=model, criterion=criterion, optimizer=optimizer, opt=opt, epoch=epoch)
+TypeError: train() missing 1 required positional argument: 'model_name'

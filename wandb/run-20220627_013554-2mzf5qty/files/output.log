@@ -1,0 +1,20 @@
+Loaded data, total number of samples: 8000
+Loaded data, total number of samples: 2000
+Outputting loss every 100 batches
+Validating every 500 batches
+Starting Epoch 0
+Epoch 0 Loss: 1.0076: 100% 32/32 [00:03<00:00,  8.22it/s]
+  0% 0/8 [00:00<?, ?it/s]
+  0% 0/8 [00:02<?, ?it/s]
+Traceback (most recent call last):
+  File "/Users/vicentevivanco/Desktop/Research/Mathematics/NNs/main.py", line 56, in <module>
+    evaluate(val_dataloader=val_dataloader, model=model, model_name=model_name, criterion=criterion, epoch=epoch, opt=opt)
+  File "/Users/vicentevivanco/Desktop/Research/Mathematics/NNs/train_and_eval.py", line 78, in evaluate
+    loss += criterion(preds, y)
+  File "/Users/vicentevivanco/opt/anaconda3/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1110, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/Users/vicentevivanco/opt/anaconda3/lib/python3.9/site-packages/torch/nn/modules/loss.py", line 529, in forward
+    return F.mse_loss(input, target, reduction=self.reduction)
+  File "/Users/vicentevivanco/opt/anaconda3/lib/python3.9/site-packages/torch/nn/functional.py", line 3251, in mse_loss
+    if not (target.size() == input.size()):
+AttributeError: 'list' object has no attribute 'size'

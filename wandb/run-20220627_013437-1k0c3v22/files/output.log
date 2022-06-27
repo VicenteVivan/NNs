@@ -1,0 +1,12 @@
+Loaded data, total number of samples: 8000
+Loaded data, total number of samples: 2000
+Outputting loss every 100 batches
+Validating every 500 batches
+Starting Epoch 0
+
+Epoch 0 Loss: 1.0044:   3% 1/32 [00:02<01:30,  2.90s/it]
+Epoch 0 Loss: 1.0044: 100% 32/32 [00:03<00:00,  8.93it/s]
+Traceback (most recent call last):
+  File "/Users/vicentevivanco/Desktop/Research/Mathematics/NNs/main.py", line 56, in <module>
+    evaluate(val_dataloader=val_dataloader, model=model, model_name=model_name, epoch=epoch, opt=opt)
+TypeError: evaluate() missing 1 required positional argument: 'criterion'

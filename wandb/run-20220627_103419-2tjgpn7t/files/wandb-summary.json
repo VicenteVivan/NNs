@@ -1,0 +1,1 @@
+{"Training Loss": {"(i = 3): 59": 0.7917127013206482}, "_timestamp": 1656340487, "_runtime": 28, "_step": 8, "Validation Loss": {"(i = 3): 59": 0.6532143950462341}, "Validation Accuracy": {"(i = 3): 59": 0.7765}, "_wandb": {"runtime": 28}}

@@ -1,0 +1,12 @@
+
+  0% 0/32 [00:00<?, ?it/s]
+Loaded data, total number of samples: 8000
+Loaded data, total number of samples: 2000
+Outputting loss every 100 batches
+Validating every 500 batches
+Epoch 0 Loss: 1.0421: 100% 32/32 [00:04<00:00,  7.71it/s]
+Traceback (most recent call last):
+  File "/Users/vicentevivanco/Desktop/Research/Mathematics/NNs/main.py", line 56, in <module>
+    evaluate(val_dataloader=val_dataloader, model=model, epoch=epoch, opt=opt)
+TypeError: evaluate() missing 1 required positional argument: 'model_name'
+The loss of epoch 0 was  0.905188100412488

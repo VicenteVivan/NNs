@@ -1,0 +1,213 @@
+2022-06-27 10:34:20,746 INFO    MainThread:15686 [internal.py:wandb_internal():90] W&B internal server running at pid: 15686, started at: 2022-06-27 10:34:20.746239
+2022-06-27 10:34:20,747 INFO    WriterThread:15686 [datastore.py:open_for_write():75] open: /Users/vicentevivanco/Desktop/Research/Mathematics/NNs/wandb/run-20220627_103419-2tjgpn7t/run-2tjgpn7t.wandb
+2022-06-27 10:34:20,749 DEBUG   SenderThread:15686 [sender.py:send():235] send: header
+2022-06-27 10:34:20,749 DEBUG   SenderThread:15686 [sender.py:send():235] send: run
+2022-06-27 10:34:21,213 DEBUG   HandlerThread:15686 [handler.py:handle_request():141] handle_request: check_version
+2022-06-27 10:34:21,214 INFO    SenderThread:15686 [dir_watcher.py:__init__():205] watching files in: /Users/vicentevivanco/Desktop/Research/Mathematics/NNs/wandb/run-20220627_103419-2tjgpn7t/files
+2022-06-27 10:34:21,214 INFO    SenderThread:15686 [sender.py:_start_run_threads():812] run started: 2tjgpn7t with start time 1656340459
+2022-06-27 10:34:21,214 DEBUG   SenderThread:15686 [sender.py:send():235] send: summary
+2022-06-27 10:34:21,214 INFO    SenderThread:15686 [sender.py:_save_file():949] saving file wandb-summary.json with policy end
+2022-06-27 10:34:21,214 DEBUG   SenderThread:15686 [sender.py:send_request():249] send_request: check_version
+2022-06-27 10:34:22,170 DEBUG   HandlerThread:15686 [handler.py:handle_request():141] handle_request: run_start
+2022-06-27 10:34:22,172 DEBUG   HandlerThread:15686 [meta.py:__init__():35] meta init
+2022-06-27 10:34:22,172 DEBUG   HandlerThread:15686 [meta.py:__init__():49] meta init done
+2022-06-27 10:34:22,172 DEBUG   HandlerThread:15686 [meta.py:probe():209] probe
+2022-06-27 10:34:22,179 DEBUG   HandlerThread:15686 [meta.py:_setup_git():199] setup git
+2022-06-27 10:34:22,192 DEBUG   HandlerThread:15686 [meta.py:_setup_git():206] setup git done
+2022-06-27 10:34:22,192 DEBUG   HandlerThread:15686 [meta.py:_save_pip():53] save pip
+2022-06-27 10:34:22,193 DEBUG   HandlerThread:15686 [meta.py:_save_pip():67] save pip done
+2022-06-27 10:34:22,193 DEBUG   HandlerThread:15686 [meta.py:_save_conda():74] save conda
+2022-06-27 10:34:22,221 INFO    Thread-7  :15686 [dir_watcher.py:_on_file_created():256] file/dir created: /Users/vicentevivanco/Desktop/Research/Mathematics/NNs/wandb/run-20220627_103419-2tjgpn7t/files/requirements.txt
+2022-06-27 10:34:22,222 INFO    Thread-7  :15686 [dir_watcher.py:_on_file_created():256] file/dir created: /Users/vicentevivanco/Desktop/Research/Mathematics/NNs/wandb/run-20220627_103419-2tjgpn7t/files/conda-environment.yaml
+2022-06-27 10:34:22,222 INFO    Thread-7  :15686 [dir_watcher.py:_on_file_created():256] file/dir created: /Users/vicentevivanco/Desktop/Research/Mathematics/NNs/wandb/run-20220627_103419-2tjgpn7t/files/wandb-summary.json
+2022-06-27 10:34:27,243 INFO    Thread-7  :15686 [dir_watcher.py:_on_file_created():256] file/dir created: /Users/vicentevivanco/Desktop/Research/Mathematics/NNs/wandb/run-20220627_103419-2tjgpn7t/files/output.log
+2022-06-27 10:34:27,918 DEBUG   HandlerThread:15686 [meta.py:_save_conda():84] save conda done
+2022-06-27 10:34:27,918 DEBUG   HandlerThread:15686 [meta.py:probe():247] probe done
+2022-06-27 10:34:27,924 DEBUG   HandlerThread:15686 [handler.py:handle_request():141] handle_request: stop_status
+2022-06-27 10:34:27,924 DEBUG   SenderThread:15686 [sender.py:send_request():249] send_request: stop_status
+2022-06-27 10:34:28,645 DEBUG   SenderThread:15686 [sender.py:send():235] send: telemetry
+2022-06-27 10:34:28,645 DEBUG   SenderThread:15686 [sender.py:send():235] send: telemetry
+2022-06-27 10:34:28,646 DEBUG   SenderThread:15686 [sender.py:send():235] send: run
+2022-06-27 10:34:28,661 INFO    Thread-7  :15686 [dir_watcher.py:_on_file_modified():269] file/dir modified: /Users/vicentevivanco/Desktop/Research/Mathematics/NNs/wandb/run-20220627_103419-2tjgpn7t/files/conda-environment.yaml
+2022-06-27 10:34:28,662 INFO    Thread-7  :15686 [dir_watcher.py:_on_file_modified():269] file/dir modified: /Users/vicentevivanco/Desktop/Research/Mathematics/NNs/wandb/run-20220627_103419-2tjgpn7t/files/config.yaml
+2022-06-27 10:34:28,662 INFO    Thread-7  :15686 [dir_watcher.py:_on_file_created():256] file/dir created: /Users/vicentevivanco/Desktop/Research/Mathematics/NNs/wandb/run-20220627_103419-2tjgpn7t/files/wandb-metadata.json
+2022-06-27 10:34:29,099 INFO    SenderThread:15686 [sender.py:send_run():710] updated run: 2tjgpn7t
+2022-06-27 10:34:29,099 DEBUG   SenderThread:15686 [sender.py:send():235] send: telemetry
+2022-06-27 10:34:29,099 DEBUG   SenderThread:15686 [sender.py:send():235] send: files
+2022-06-27 10:34:29,099 INFO    SenderThread:15686 [sender.py:_save_file():949] saving file wandb-metadata.json with policy now
+2022-06-27 10:34:29,667 INFO    Thread-7  :15686 [dir_watcher.py:_on_file_modified():269] file/dir modified: /Users/vicentevivanco/Desktop/Research/Mathematics/NNs/wandb/run-20220627_103419-2tjgpn7t/files/output.log
+2022-06-27 10:34:30,234 DEBUG   HandlerThread:15686 [handler.py:handle_request():141] handle_request: partial_history
+2022-06-27 10:34:30,235 DEBUG   SenderThread:15686 [sender.py:send():235] send: history
+2022-06-27 10:34:30,235 DEBUG   SenderThread:15686 [sender.py:send():235] send: summary
+2022-06-27 10:34:30,236 INFO    SenderThread:15686 [sender.py:_save_file():949] saving file wandb-summary.json with policy end
+2022-06-27 10:34:30,368 INFO    Thread-11 :15686 [upload_job.py:push():132] Uploaded file /var/folders/db/72v2ct5n12vbgx1kpnf_t74r0000gn/T/tmp1aepre_vwandb/lrmwi2zv-wandb-metadata.json
+2022-06-27 10:34:30,675 INFO    Thread-7  :15686 [dir_watcher.py:_on_file_modified():269] file/dir modified: /Users/vicentevivanco/Desktop/Research/Mathematics/NNs/wandb/run-20220627_103419-2tjgpn7t/files/wandb-summary.json
+2022-06-27 10:34:31,678 INFO    Thread-7  :15686 [dir_watcher.py:_on_file_modified():269] file/dir modified: /Users/vicentevivanco/Desktop/Research/Mathematics/NNs/wandb/run-20220627_103419-2tjgpn7t/files/output.log
+2022-06-27 10:34:33,694 INFO    Thread-7  :15686 [dir_watcher.py:_on_file_modified():269] file/dir modified: /Users/vicentevivanco/Desktop/Research/Mathematics/NNs/wandb/run-20220627_103419-2tjgpn7t/files/output.log
+2022-06-27 10:34:34,350 DEBUG   HandlerThread:15686 [handler.py:handle_request():141] handle_request: partial_history
+2022-06-27 10:34:34,350 DEBUG   SenderThread:15686 [sender.py:send():235] send: history
+2022-06-27 10:34:34,350 DEBUG   SenderThread:15686 [sender.py:send():235] send: summary
+2022-06-27 10:34:34,351 DEBUG   HandlerThread:15686 [handler.py:handle_request():141] handle_request: partial_history
+2022-06-27 10:34:34,351 INFO    SenderThread:15686 [sender.py:_save_file():949] saving file wandb-summary.json with policy end
+2022-06-27 10:34:34,351 DEBUG   SenderThread:15686 [sender.py:send():235] send: history
+2022-06-27 10:34:34,351 DEBUG   SenderThread:15686 [sender.py:send():235] send: summary
+2022-06-27 10:34:34,352 INFO    SenderThread:15686 [sender.py:_save_file():949] saving file wandb-summary.json with policy end
+2022-06-27 10:34:34,710 INFO    Thread-7  :15686 [dir_watcher.py:_on_file_modified():269] file/dir modified: /Users/vicentevivanco/Desktop/Research/Mathematics/NNs/wandb/run-20220627_103419-2tjgpn7t/files/wandb-summary.json
+2022-06-27 10:34:35,710 INFO    Thread-7  :15686 [dir_watcher.py:_on_file_modified():269] file/dir modified: /Users/vicentevivanco/Desktop/Research/Mathematics/NNs/wandb/run-20220627_103419-2tjgpn7t/files/output.log
+2022-06-27 10:34:37,082 DEBUG   HandlerThread:15686 [handler.py:handle_request():141] handle_request: partial_history
+2022-06-27 10:34:37,083 DEBUG   SenderThread:15686 [sender.py:send():235] send: history
+2022-06-27 10:34:37,083 DEBUG   SenderThread:15686 [sender.py:send():235] send: summary
+2022-06-27 10:34:37,084 INFO    SenderThread:15686 [sender.py:_save_file():949] saving file wandb-summary.json with policy end
+2022-06-27 10:34:37,717 INFO    Thread-7  :15686 [dir_watcher.py:_on_file_modified():269] file/dir modified: /Users/vicentevivanco/Desktop/Research/Mathematics/NNs/wandb/run-20220627_103419-2tjgpn7t/files/wandb-summary.json
+2022-06-27 10:34:39,727 INFO    Thread-7  :15686 [dir_watcher.py:_on_file_modified():269] file/dir modified: /Users/vicentevivanco/Desktop/Research/Mathematics/NNs/wandb/run-20220627_103419-2tjgpn7t/files/output.log
+2022-06-27 10:34:40,664 DEBUG   HandlerThread:15686 [handler.py:handle_request():141] handle_request: partial_history
+2022-06-27 10:34:40,664 DEBUG   SenderThread:15686 [sender.py:send():235] send: history
+2022-06-27 10:34:40,664 DEBUG   SenderThread:15686 [sender.py:send():235] send: summary
+2022-06-27 10:34:40,665 DEBUG   HandlerThread:15686 [handler.py:handle_request():141] handle_request: partial_history
+2022-06-27 10:34:40,665 INFO    SenderThread:15686 [sender.py:_save_file():949] saving file wandb-summary.json with policy end
+2022-06-27 10:34:40,665 DEBUG   SenderThread:15686 [sender.py:send():235] send: history
+2022-06-27 10:34:40,665 DEBUG   SenderThread:15686 [sender.py:send():235] send: summary
+2022-06-27 10:34:40,666 INFO    SenderThread:15686 [sender.py:_save_file():949] saving file wandb-summary.json with policy end
+2022-06-27 10:34:40,734 INFO    Thread-7  :15686 [dir_watcher.py:_on_file_modified():269] file/dir modified: /Users/vicentevivanco/Desktop/Research/Mathematics/NNs/wandb/run-20220627_103419-2tjgpn7t/files/wandb-summary.json
+2022-06-27 10:34:41,737 INFO    Thread-7  :15686 [dir_watcher.py:_on_file_modified():269] file/dir modified: /Users/vicentevivanco/Desktop/Research/Mathematics/NNs/wandb/run-20220627_103419-2tjgpn7t/files/output.log
+2022-06-27 10:34:43,434 DEBUG   HandlerThread:15686 [handler.py:handle_request():141] handle_request: partial_history
+2022-06-27 10:34:43,436 DEBUG   SenderThread:15686 [sender.py:send():235] send: history
+2022-06-27 10:34:43,436 DEBUG   SenderThread:15686 [sender.py:send():235] send: summary
+2022-06-27 10:34:43,442 INFO    SenderThread:15686 [sender.py:_save_file():949] saving file wandb-summary.json with policy end
+2022-06-27 10:34:43,677 DEBUG   HandlerThread:15686 [handler.py:handle_request():141] handle_request: stop_status
+2022-06-27 10:34:43,681 DEBUG   SenderThread:15686 [sender.py:send_request():249] send_request: stop_status
+2022-06-27 10:34:43,747 INFO    Thread-7  :15686 [dir_watcher.py:_on_file_modified():269] file/dir modified: /Users/vicentevivanco/Desktop/Research/Mathematics/NNs/wandb/run-20220627_103419-2tjgpn7t/files/wandb-summary.json
+2022-06-27 10:34:45,755 INFO    Thread-7  :15686 [dir_watcher.py:_on_file_modified():269] file/dir modified: /Users/vicentevivanco/Desktop/Research/Mathematics/NNs/wandb/run-20220627_103419-2tjgpn7t/files/output.log
+2022-06-27 10:34:47,434 DEBUG   HandlerThread:15686 [handler.py:handle_request():141] handle_request: partial_history
+2022-06-27 10:34:47,434 DEBUG   SenderThread:15686 [sender.py:send():235] send: history
+2022-06-27 10:34:47,435 DEBUG   HandlerThread:15686 [handler.py:handle_request():141] handle_request: partial_history
+2022-06-27 10:34:47,435 DEBUG   SenderThread:15686 [sender.py:send():235] send: summary
+2022-06-27 10:34:47,435 INFO    SenderThread:15686 [sender.py:_save_file():949] saving file wandb-summary.json with policy end
+2022-06-27 10:34:47,436 DEBUG   SenderThread:15686 [sender.py:send():235] send: history
+2022-06-27 10:34:47,436 DEBUG   SenderThread:15686 [sender.py:send():235] send: summary
+2022-06-27 10:34:47,436 INFO    SenderThread:15686 [sender.py:_save_file():949] saving file wandb-summary.json with policy end
+2022-06-27 10:34:47,436 DEBUG   SenderThread:15686 [sender.py:send():235] send: telemetry
+2022-06-27 10:34:47,441 DEBUG   SenderThread:15686 [sender.py:send():235] send: telemetry
+2022-06-27 10:34:47,765 INFO    Thread-7  :15686 [dir_watcher.py:_on_file_modified():269] file/dir modified: /Users/vicentevivanco/Desktop/Research/Mathematics/NNs/wandb/run-20220627_103419-2tjgpn7t/files/wandb-summary.json
+2022-06-27 10:34:49,769 INFO    Thread-7  :15686 [dir_watcher.py:_on_file_modified():269] file/dir modified: /Users/vicentevivanco/Desktop/Research/Mathematics/NNs/wandb/run-20220627_103419-2tjgpn7t/files/output.log
+2022-06-27 10:34:50,425 DEBUG   SenderThread:15686 [sender.py:send():235] send: exit
+2022-06-27 10:34:50,425 DEBUG   HandlerThread:15686 [handler.py:handle_request():141] handle_request: poll_exit
+2022-06-27 10:34:50,425 INFO    SenderThread:15686 [sender.py:send_exit():371] handling exit code: 0
+2022-06-27 10:34:50,426 INFO    SenderThread:15686 [sender.py:send_exit():373] handling runtime: 28
+2022-06-27 10:34:50,427 INFO    SenderThread:15686 [sender.py:_save_file():949] saving file wandb-summary.json with policy end
+2022-06-27 10:34:50,427 INFO    SenderThread:15686 [sender.py:send_exit():379] send defer
+2022-06-27 10:34:50,428 DEBUG   SenderThread:15686 [sender.py:send_request():249] send_request: poll_exit
+2022-06-27 10:34:50,429 DEBUG   HandlerThread:15686 [handler.py:handle_request():141] handle_request: defer
+2022-06-27 10:34:50,430 INFO    HandlerThread:15686 [handler.py:handle_request_defer():164] handle defer: 0
+2022-06-27 10:34:50,430 DEBUG   SenderThread:15686 [sender.py:send_request():249] send_request: defer
+2022-06-27 10:34:50,430 INFO    SenderThread:15686 [sender.py:send_request_defer():388] handle sender defer: 0
+2022-06-27 10:34:50,430 INFO    SenderThread:15686 [sender.py:transition_state():392] send defer: 1
+2022-06-27 10:34:50,431 DEBUG   HandlerThread:15686 [handler.py:handle_request():141] handle_request: defer
+2022-06-27 10:34:50,431 INFO    HandlerThread:15686 [handler.py:handle_request_defer():164] handle defer: 1
+2022-06-27 10:34:50,445 DEBUG   SenderThread:15686 [sender.py:send_request():249] send_request: defer
+2022-06-27 10:34:50,445 INFO    SenderThread:15686 [sender.py:send_request_defer():388] handle sender defer: 1
+2022-06-27 10:34:50,446 INFO    SenderThread:15686 [sender.py:transition_state():392] send defer: 2
+2022-06-27 10:34:50,447 DEBUG   SenderThread:15686 [sender.py:send():235] send: stats
+2022-06-27 10:34:50,448 DEBUG   HandlerThread:15686 [handler.py:handle_request():141] handle_request: defer
+2022-06-27 10:34:50,449 INFO    HandlerThread:15686 [handler.py:handle_request_defer():164] handle defer: 2
+2022-06-27 10:34:50,449 DEBUG   SenderThread:15686 [sender.py:send_request():249] send_request: defer
+2022-06-27 10:34:50,449 INFO    SenderThread:15686 [sender.py:send_request_defer():388] handle sender defer: 2
+2022-06-27 10:34:50,449 INFO    SenderThread:15686 [sender.py:transition_state():392] send defer: 3
+2022-06-27 10:34:50,449 DEBUG   HandlerThread:15686 [handler.py:handle_request():141] handle_request: defer
+2022-06-27 10:34:50,449 INFO    HandlerThread:15686 [handler.py:handle_request_defer():164] handle defer: 3
+2022-06-27 10:34:50,450 DEBUG   SenderThread:15686 [sender.py:send_request():249] send_request: defer
+2022-06-27 10:34:50,450 INFO    SenderThread:15686 [sender.py:send_request_defer():388] handle sender defer: 3
+2022-06-27 10:34:50,450 INFO    SenderThread:15686 [sender.py:transition_state():392] send defer: 4
+2022-06-27 10:34:50,450 DEBUG   HandlerThread:15686 [handler.py:handle_request():141] handle_request: defer
+2022-06-27 10:34:50,450 INFO    HandlerThread:15686 [handler.py:handle_request_defer():164] handle defer: 4
+2022-06-27 10:34:50,451 DEBUG   SenderThread:15686 [sender.py:send():235] send: summary
+2022-06-27 10:34:50,452 INFO    SenderThread:15686 [sender.py:_save_file():949] saving file wandb-summary.json with policy end
+2022-06-27 10:34:50,452 DEBUG   SenderThread:15686 [sender.py:send_request():249] send_request: defer
+2022-06-27 10:34:50,452 INFO    SenderThread:15686 [sender.py:send_request_defer():388] handle sender defer: 4
+2022-06-27 10:34:50,452 INFO    SenderThread:15686 [sender.py:transition_state():392] send defer: 5
+2022-06-27 10:34:50,453 DEBUG   HandlerThread:15686 [handler.py:handle_request():141] handle_request: defer
+2022-06-27 10:34:50,453 INFO    HandlerThread:15686 [handler.py:handle_request_defer():164] handle defer: 5
+2022-06-27 10:34:50,453 DEBUG   SenderThread:15686 [sender.py:send_request():249] send_request: defer
+2022-06-27 10:34:50,453 INFO    SenderThread:15686 [sender.py:send_request_defer():388] handle sender defer: 5
+2022-06-27 10:34:50,778 DEBUG   HandlerThread:15686 [handler.py:handle_request():141] handle_request: poll_exit
+2022-06-27 10:34:50,780 INFO    Thread-7  :15686 [dir_watcher.py:_on_file_modified():269] file/dir modified: /Users/vicentevivanco/Desktop/Research/Mathematics/NNs/wandb/run-20220627_103419-2tjgpn7t/files/output.log
+2022-06-27 10:34:50,780 INFO    Thread-7  :15686 [dir_watcher.py:_on_file_modified():269] file/dir modified: /Users/vicentevivanco/Desktop/Research/Mathematics/NNs/wandb/run-20220627_103419-2tjgpn7t/files/wandb-summary.json
+2022-06-27 10:34:51,137 INFO    SenderThread:15686 [sender.py:transition_state():392] send defer: 6
+2022-06-27 10:34:51,137 DEBUG   SenderThread:15686 [sender.py:send_request():249] send_request: poll_exit
+2022-06-27 10:34:51,138 DEBUG   HandlerThread:15686 [handler.py:handle_request():141] handle_request: defer
+2022-06-27 10:34:51,138 INFO    HandlerThread:15686 [handler.py:handle_request_defer():164] handle defer: 6
+2022-06-27 10:34:51,139 DEBUG   SenderThread:15686 [sender.py:send_request():249] send_request: defer
+2022-06-27 10:34:51,139 INFO    SenderThread:15686 [sender.py:send_request_defer():388] handle sender defer: 6
+2022-06-27 10:34:51,139 INFO    SenderThread:15686 [dir_watcher.py:finish():336] shutting down directory watcher
+2022-06-27 10:34:51,243 DEBUG   HandlerThread:15686 [handler.py:handle_request():141] handle_request: poll_exit
+2022-06-27 10:34:51,787 INFO    SenderThread:15686 [dir_watcher.py:_on_file_modified():269] file/dir modified: /Users/vicentevivanco/Desktop/Research/Mathematics/NNs/wandb/run-20220627_103419-2tjgpn7t/files/config.yaml
+2022-06-27 10:34:51,788 INFO    SenderThread:15686 [dir_watcher.py:finish():366] scan: /Users/vicentevivanco/Desktop/Research/Mathematics/NNs/wandb/run-20220627_103419-2tjgpn7t/files
+2022-06-27 10:34:51,790 INFO    SenderThread:15686 [dir_watcher.py:finish():380] scan save: /Users/vicentevivanco/Desktop/Research/Mathematics/NNs/wandb/run-20220627_103419-2tjgpn7t/files/requirements.txt requirements.txt
+2022-06-27 10:34:51,790 INFO    SenderThread:15686 [dir_watcher.py:finish():380] scan save: /Users/vicentevivanco/Desktop/Research/Mathematics/NNs/wandb/run-20220627_103419-2tjgpn7t/files/output.log output.log
+2022-06-27 10:34:51,792 INFO    SenderThread:15686 [dir_watcher.py:finish():380] scan save: /Users/vicentevivanco/Desktop/Research/Mathematics/NNs/wandb/run-20220627_103419-2tjgpn7t/files/config.yaml config.yaml
+2022-06-27 10:34:51,807 INFO    SenderThread:15686 [dir_watcher.py:finish():380] scan save: /Users/vicentevivanco/Desktop/Research/Mathematics/NNs/wandb/run-20220627_103419-2tjgpn7t/files/wandb-summary.json wandb-summary.json
+2022-06-27 10:34:51,807 INFO    SenderThread:15686 [dir_watcher.py:finish():380] scan save: /Users/vicentevivanco/Desktop/Research/Mathematics/NNs/wandb/run-20220627_103419-2tjgpn7t/files/conda-environment.yaml conda-environment.yaml
+2022-06-27 10:34:51,814 INFO    SenderThread:15686 [dir_watcher.py:finish():380] scan save: /Users/vicentevivanco/Desktop/Research/Mathematics/NNs/wandb/run-20220627_103419-2tjgpn7t/files/wandb-metadata.json wandb-metadata.json
+2022-06-27 10:34:51,819 INFO    SenderThread:15686 [sender.py:transition_state():392] send defer: 7
+2022-06-27 10:34:51,820 DEBUG   SenderThread:15686 [sender.py:send_request():249] send_request: poll_exit
+2022-06-27 10:34:51,827 DEBUG   HandlerThread:15686 [handler.py:handle_request():141] handle_request: defer
+2022-06-27 10:34:51,828 INFO    HandlerThread:15686 [handler.py:handle_request_defer():164] handle defer: 7
+2022-06-27 10:34:51,829 DEBUG   SenderThread:15686 [sender.py:send_request():249] send_request: defer
+2022-06-27 10:34:51,829 INFO    SenderThread:15686 [sender.py:send_request_defer():388] handle sender defer: 7
+2022-06-27 10:34:51,829 INFO    SenderThread:15686 [file_pusher.py:finish():145] shutting down file pusher
+2022-06-27 10:34:52,148 DEBUG   HandlerThread:15686 [handler.py:handle_request():141] handle_request: poll_exit
+2022-06-27 10:34:52,149 DEBUG   SenderThread:15686 [sender.py:send_request():249] send_request: poll_exit
+2022-06-27 10:34:52,271 DEBUG   HandlerThread:15686 [handler.py:handle_request():141] handle_request: poll_exit
+2022-06-27 10:34:52,272 DEBUG   SenderThread:15686 [sender.py:send_request():249] send_request: poll_exit
+2022-06-27 10:34:52,378 DEBUG   HandlerThread:15686 [handler.py:handle_request():141] handle_request: poll_exit
+2022-06-27 10:34:52,379 DEBUG   SenderThread:15686 [sender.py:send_request():249] send_request: poll_exit
+2022-06-27 10:34:52,488 DEBUG   HandlerThread:15686 [handler.py:handle_request():141] handle_request: poll_exit
+2022-06-27 10:34:52,498 DEBUG   SenderThread:15686 [sender.py:send_request():249] send_request: poll_exit
+2022-06-27 10:34:52,605 DEBUG   HandlerThread:15686 [handler.py:handle_request():141] handle_request: poll_exit
+2022-06-27 10:34:52,605 DEBUG   SenderThread:15686 [sender.py:send_request():249] send_request: poll_exit
+2022-06-27 10:34:52,712 DEBUG   HandlerThread:15686 [handler.py:handle_request():141] handle_request: poll_exit
+2022-06-27 10:34:52,712 DEBUG   SenderThread:15686 [sender.py:send_request():249] send_request: poll_exit
+2022-06-27 10:34:52,817 DEBUG   HandlerThread:15686 [handler.py:handle_request():141] handle_request: poll_exit
+2022-06-27 10:34:52,818 DEBUG   SenderThread:15686 [sender.py:send_request():249] send_request: poll_exit
+2022-06-27 10:34:52,926 DEBUG   HandlerThread:15686 [handler.py:handle_request():141] handle_request: poll_exit
+2022-06-27 10:34:52,927 DEBUG   SenderThread:15686 [sender.py:send_request():249] send_request: poll_exit
+2022-06-27 10:34:52,974 INFO    Thread-12 :15686 [upload_job.py:push():132] Uploaded file /Users/vicentevivanco/Desktop/Research/Mathematics/NNs/wandb/run-20220627_103419-2tjgpn7t/files/requirements.txt
+2022-06-27 10:34:52,981 INFO    Thread-15 :15686 [upload_job.py:push():132] Uploaded file /Users/vicentevivanco/Desktop/Research/Mathematics/NNs/wandb/run-20220627_103419-2tjgpn7t/files/wandb-summary.json
+2022-06-27 10:34:53,029 INFO    Thread-14 :15686 [upload_job.py:push():132] Uploaded file /Users/vicentevivanco/Desktop/Research/Mathematics/NNs/wandb/run-20220627_103419-2tjgpn7t/files/config.yaml
+2022-06-27 10:34:53,031 INFO    Thread-13 :15686 [upload_job.py:push():132] Uploaded file /Users/vicentevivanco/Desktop/Research/Mathematics/NNs/wandb/run-20220627_103419-2tjgpn7t/files/output.log
+2022-06-27 10:34:53,035 DEBUG   HandlerThread:15686 [handler.py:handle_request():141] handle_request: poll_exit
+2022-06-27 10:34:53,035 INFO    Thread-16 :15686 [upload_job.py:push():132] Uploaded file /Users/vicentevivanco/Desktop/Research/Mathematics/NNs/wandb/run-20220627_103419-2tjgpn7t/files/conda-environment.yaml
+2022-06-27 10:34:53,036 DEBUG   SenderThread:15686 [sender.py:send_request():249] send_request: poll_exit
+2022-06-27 10:34:53,145 DEBUG   HandlerThread:15686 [handler.py:handle_request():141] handle_request: poll_exit
+2022-06-27 10:34:53,146 DEBUG   SenderThread:15686 [sender.py:send_request():249] send_request: poll_exit
+2022-06-27 10:34:53,242 INFO    Thread-6  :15686 [sender.py:transition_state():392] send defer: 8
+2022-06-27 10:34:53,243 DEBUG   HandlerThread:15686 [handler.py:handle_request():141] handle_request: defer
+2022-06-27 10:34:53,244 INFO    HandlerThread:15686 [handler.py:handle_request_defer():164] handle defer: 8
+2022-06-27 10:34:53,244 DEBUG   SenderThread:15686 [sender.py:send_request():249] send_request: defer
+2022-06-27 10:34:53,244 INFO    SenderThread:15686 [sender.py:send_request_defer():388] handle sender defer: 8
+2022-06-27 10:34:53,251 DEBUG   HandlerThread:15686 [handler.py:handle_request():141] handle_request: poll_exit
+2022-06-27 10:34:53,510 INFO    SenderThread:15686 [sender.py:transition_state():392] send defer: 9
+2022-06-27 10:34:53,511 DEBUG   SenderThread:15686 [sender.py:send_request():249] send_request: poll_exit
+2022-06-27 10:34:53,511 DEBUG   HandlerThread:15686 [handler.py:handle_request():141] handle_request: defer
+2022-06-27 10:34:53,512 INFO    HandlerThread:15686 [handler.py:handle_request_defer():164] handle defer: 9
+2022-06-27 10:34:53,512 DEBUG   SenderThread:15686 [sender.py:send_request():249] send_request: defer
+2022-06-27 10:34:53,512 INFO    SenderThread:15686 [sender.py:send_request_defer():388] handle sender defer: 9
+2022-06-27 10:34:53,512 INFO    SenderThread:15686 [sender.py:transition_state():392] send defer: 10
+2022-06-27 10:34:53,513 DEBUG   SenderThread:15686 [sender.py:send():235] send: final
+2022-06-27 10:34:53,513 DEBUG   HandlerThread:15686 [handler.py:handle_request():141] handle_request: defer
+2022-06-27 10:34:53,513 DEBUG   SenderThread:15686 [sender.py:send():235] send: footer
+2022-06-27 10:34:53,514 INFO    HandlerThread:15686 [handler.py:handle_request_defer():164] handle defer: 10
+2022-06-27 10:34:53,514 DEBUG   SenderThread:15686 [sender.py:send_request():249] send_request: defer
+2022-06-27 10:34:53,514 INFO    SenderThread:15686 [sender.py:send_request_defer():388] handle sender defer: 10
+2022-06-27 10:34:53,620 DEBUG   HandlerThread:15686 [handler.py:handle_request():141] handle_request: poll_exit
+2022-06-27 10:34:53,621 DEBUG   SenderThread:15686 [sender.py:send_request():249] send_request: poll_exit
+2022-06-27 10:34:53,621 INFO    SenderThread:15686 [file_pusher.py:join():150] waiting for file pusher
+2022-06-27 10:34:54,672 DEBUG   HandlerThread:15686 [handler.py:handle_request():141] handle_request: sampled_history
+2022-06-27 10:34:54,675 DEBUG   HandlerThread:15686 [handler.py:handle_request():141] handle_request: get_summary
+2022-06-27 10:34:54,677 DEBUG   HandlerThread:15686 [handler.py:handle_request():141] handle_request: shutdown
+2022-06-27 10:34:54,677 INFO    HandlerThread:15686 [handler.py:finish():806] shutting down handler
+2022-06-27 10:34:55,523 INFO    WriterThread:15686 [datastore.py:close():279] close: /Users/vicentevivanco/Desktop/Research/Mathematics/NNs/wandb/run-20220627_103419-2tjgpn7t/run-2tjgpn7t.wandb
+2022-06-27 10:34:55,572 INFO    SenderThread:15686 [sender.py:finish():1111] shutting down sender
+2022-06-27 10:34:55,573 INFO    SenderThread:15686 [file_pusher.py:finish():145] shutting down file pusher
+2022-06-27 10:34:55,573 INFO    SenderThread:15686 [file_pusher.py:join():150] waiting for file pusher
+2022-06-27 10:34:55,579 INFO    MainThread:15686 [internal.py:handle_exit():80] Internal process exited
