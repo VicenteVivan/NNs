@@ -15,7 +15,7 @@ import dataloader
 from config import getopt
 from models import getModels, getNames
 
-def getTrainingAccuracy(y_pred, y_true):
+def getTrainingAccuracy(y_pred, y_true, opt=None):
     y_pred.to(opt.device)
     y_true.to(opt.device)
     
@@ -66,7 +66,7 @@ def train(train_dataloader, model, model_name, criterion, optimizer, opt, epoch,
         
         if i % val_cycle == 0:
             wandb.log({"Training Loss" : {model_name: loss.item()}})
-            wandb.log({"Training Accuracy" : {model_name: getTrainingAccuracy(preds, y)}})
+            wandb.log({"Training Accuracy" : {model_name: getTrainingAccuracy(preds, y, opt)}})
             bar.set_description("Epoch {} Loss: {:.4f}".format(epoch, epoch_loss))
 
         if val_dataloader != None and i % (val_cycle * 5) == 0:
