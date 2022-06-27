@@ -16,6 +16,9 @@ from config import getopt
 from models import getModels, getNames
 
 def getTrainingAccuracy(y_pred, y_true):
+    y_pred.to(opt.device)
+    y_true.to(opt.device)
+    
     # Discretize the predictions
     y_pred = torch.where(y_pred > 0, torch.ones(y_pred.shape), torch.zeros(y_pred.shape))
     y_pred = torch.where(y_pred == 0, torch.ones(y_pred.shape) * -1, y_pred) 
