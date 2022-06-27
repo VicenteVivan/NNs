@@ -16,13 +16,15 @@ from config import getopt
 from models import getModels, getNames
 
 def getTrainingAccuracy(y_pred, y_true, opt=None):
-    y_pred.to(opt.device)
-    y_true.to(opt.device)
+    # y_pred.to(opt.device)
+    # y_true.to(opt.device)
     
     # Discretize the predictions
-    y_pred = torch.where(y_pred > 0, torch.ones(y_pred.shape).to(opt.device), torch.zeros(y_pred.shape).to(opt.device)).to(opt.device)
-    y_pred = torch.where(y_pred == 0, torch.ones(y_pred.shape).to(opt.device) * -1, y_pred).to(opt.device)
+    y_pred = y_pred.detach().cpu().numpy()
     
+    y_pred = torch.where(y_pred > 0, torch.ones(y_pred.shape), torch.zeros(y_pred.shape))
+    y_pred = torch.where(y_pred == 0, torch.ones(y_pred.shape) * -1, y_pred)
+
     # Save the predictions
     acc = accuracy_score(y_true, y_pred)
     
@@ -92,8 +94,9 @@ def evaluate(val_dataloader, model, model_name, criterion, epoch, opt):
         loss += criterion(y_pred, y)
         
         # Discretize the predictions
-        y_pred = torch.where(y_pred > 0, torch.ones(y_pred.shape).to(opt.device), torch.zeros(y_pred.shape).to(opt.device)).to(opt.device)
-        y_pred = torch.where(y_pred == 0, torch.ones(y_pred.shape).to(opt.device) * -1, y_pred).to(opt.device)
+        y_pred = y_pred.detach().cpu().numpy()
+        y_pred = torch.where(y_pred > 0, torch.ones(y_pred.shape), torch.zeros(y_pred.shape))
+        y_pred = torch.where(y_pred == 0, torch.ones(y_pred.shape) * -1, y_pred)
         
         # Save the predictions
         targets.append(y)
