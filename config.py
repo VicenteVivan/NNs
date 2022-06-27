@@ -24,6 +24,6 @@ def getopt():
     opt.batch_size = 256
     opt.trainset = 'SD2_train'
     opt.testset = 'SD2_test'
-    opt.device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
+    opt.device = torch.device('cuda')
 
     return opt
