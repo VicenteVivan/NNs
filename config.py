@@ -1,5 +1,4 @@
 import argparse
-import multiprocessing
 import torch
 
 def getopt():

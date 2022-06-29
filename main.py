@@ -1,5 +1,5 @@
 if __name__ == '__main__':
-    import os, numpy as np, argparse, time, multiprocessing
+    import os, numpy as np, argparse, time
     from tqdm import tqdm
 
     import torch
