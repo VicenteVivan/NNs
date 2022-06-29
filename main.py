@@ -42,10 +42,11 @@ if __name__ == '__main__':
         
         wandb.run.name = opt.description
         
-        model = model.to(opt.device)
+        # model = model.to(opt.device)
         
         optimizer = torch.optim.Adam(model.parameters(), lr=opt.lr)
-        _ = model.to(opt.device)
+        #_ = model.to(opt.device)
+        _ = model
 
         wandb.watch(model, criterion, log="all")
 

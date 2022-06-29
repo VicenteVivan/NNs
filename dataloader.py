@@ -1,4 +1,5 @@
 import csv
+from sklearn.inspection import PartialDependenceDisplay
 
 from torch.utils.data import Dataset
 
@@ -27,7 +28,6 @@ from config import getopt
 class SD2(Dataset):
 
     def __init__(self, split='train', opt=None):
-
         np.random.seed(0)
         
         self.split = split 
@@ -40,7 +40,12 @@ class SD2(Dataset):
         # Get X and y
         self.X = xy.iloc[:,:-1]
         self.y = xy.iloc[:,-1]
-
+        
+        # Randomly switch 10% of the labels 1 <-> -1
+        if split == 'train':
+            shouldSwitch = np.random.choice(a=[True, False], size=len(self.y), p=[0.1, 0.9])
+            self.y = pd.Series(np.where(shouldSwitch, np.where(self.y == 1, -1, 1), self.y))
+        
         # Convert DataFrame to Torch Tensor
         self.X = torch.from_numpy(self.X.values).float()
         self.y = torch.from_numpy(self.y.values).float().reshape(-1,1)

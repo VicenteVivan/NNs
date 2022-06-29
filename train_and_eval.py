@@ -1,3 +1,4 @@
+from pyrsistent import m
 from sklearn.metrics import accuracy_score
 import numpy as np
 
@@ -17,8 +18,8 @@ from models import getModels, getNames
 
 def getTrainingAccuracy(y_pred, y_true, opt=None): 
     # Discretize the predictions
-    y_true = y_true.detach().cpu().numpy()
-    y_pred = y_pred.detach().cpu().numpy()
+    y_true = y_true.detach().numpy()
+    y_pred = y_pred.detach().numpy()
     
     y_pred = np.where(y_pred > 0, 1, 0)
     y_pred = np.where(y_pred == 0, -1, y_pred)
@@ -45,9 +46,9 @@ def train(train_dataloader, model, model_name, criterion, optimizer, opt, epoch,
     for i ,(X, y) in bar:
         batch_size = X.shape[0]
 
-        X = X.to(opt.device)
+        # X = X.to(opt.device)
 
-        y = y.to(opt.device)
+        # y = y.to(opt.device)
 
         optimizer.zero_grad()
 
@@ -81,10 +82,12 @@ def evaluate(val_dataloader, model, model_name, criterion, epoch, opt):
     loss = 0.0
     preds = []
     targets = []
-
+    
+    model.eval() 
+    
     for i, (X, y) in bar:
-        y = y.to(opt.device)
-        X = X.to(opt.device)
+        # y = y.to(opt.device)
+        # X = X.to(opt.device)
         
         with torch.no_grad():
             y_pred = model(X)
@@ -92,8 +95,8 @@ def evaluate(val_dataloader, model, model_name, criterion, epoch, opt):
         loss += criterion(y_pred, y)
         
         # Discretize the predictions
-        y = y.detach().cpu().numpy()
-        y_pred = y_pred.detach().cpu().numpy()
+        y = y.detach().numpy()
+        y_pred = y_pred.detach().numpy()
         
         y_pred = np.where(y_pred > 0, 1, 0)
         y_pred = np.where(y_pred == 0, -1, y_pred)
@@ -101,6 +104,8 @@ def evaluate(val_dataloader, model, model_name, criterion, epoch, opt):
         # Save the predictions
         targets.append(y)
         preds.append(y_pred)
+        
+    model.train() 
 
     preds = np.concatenate(preds, axis=0)
     targets = np.concatenate(targets, axis=0)
@@ -117,7 +122,7 @@ if __name__ == '__main__':
     
     model = getModels()[0]
     model_name = getNames()[0]
-    model = model.to(opt.device)
+    # model = model.to(opt.device)
     criterion = torch.nn.MSELoss()
     optimizer = torch.optim.Adam(model.parameters(), lr=opt.lr)
     

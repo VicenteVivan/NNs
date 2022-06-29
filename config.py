@@ -12,9 +12,9 @@ def getopt():
 
     opt.size = 224
 
-    opt.n_epochs = 100
+    opt.n_epochs = 200
 
-    opt.description = '1M Params, 10K Samples'
+    opt.description = '100K P, 10K S'
     opt.archname = 'Sequential NN'
     opt.evaluate = False
 
@@ -24,6 +24,6 @@ def getopt():
     opt.batch_size = 256
     opt.trainset = 'SD2_train'
     opt.testset = 'SD2_test'
-    opt.device = torch.device('cuda')
+    opt.device = torch.device('cpu')
 
     return opt
