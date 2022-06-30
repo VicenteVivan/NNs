@@ -15,35 +15,35 @@ def getNetwork(input_size, output_size, num_hidden_layers, hidden_layer_size):
     network.add_module("tanh", nn.Tanh())
     return network
 
-name1 = "(i = 1): 196"
-net1 = getNetwork(50, 1, 1, 1961)
+name1 = "(i = 1): 324"
+net1 = getNetwork(3072, 10, 1, 324)
 
-name2 = "(i = 2): 78"
-net2 = getNetwork(50, 1, 2, 292)
+name2 = "(i = 2): 296"
+net2 = getNetwork(3072, 10, 2, 296)
 
-name3 = "(i = 3): 59"
-net3 = getNetwork(50, 1, 3, 211)
+name3 = "(i = 3): 275"
+net3 = getNetwork(3072, 10, 3, 275)
 
-name4 = "(i = 4): 50"
-net4 = getNetwork(50, 1, 4, 174)
+name4 = "(i = 4): 259"
+net4 = getNetwork(3072, 10, 4, 259)
 
-name5 = "(i = 5): 44"
-net5 = getNetwork(50, 1, 5, 152)
+name5 = "(i = 5): 246"
+net5 = getNetwork(3072, 10, 5, 246)
 
-name6 = "(i = 6): 40"
-net6 = getNetwork(50, 1, 6, 136)
+name6 = "(i = 6): 235"
+net6 = getNetwork(3072, 10, 6, 235)
 
-name7="(i = 7): 37"
-net7 = getNetwork(50, 1, 7, 125)
+name7="(i = 7): 225"
+net7 = getNetwork(3072, 10, 7, 225)
 
-name8="(i = 8): 34"
-net8 = getNetwork(50, 1, 8, 116)
+name8="(i = 8): 217"
+net8 = getNetwork(3072, 10, 8, 217)
 
-name9="(i = 9): 32"
-net9 = getNetwork(50, 1, 9, 109)
+name9="(i = 9): 210"
+net9 = getNetwork(3072, 10, 9, 210)
 
-name10="(i = 10): 31"
-net10 = getNetwork(50, 1, 10, 103)
+name10="(i = 10): 204"
+net10 = getNetwork(3072, 10, 10, 204)
 
 def getModels():
     return [net1, net2, net3, net4, net5, net6, net7, net8, net9, net10]

@@ -7,7 +7,7 @@ def getopt():
 
     opt = parser.parse_args()
     # opt.kernels = multiprocessing.cpu_count()
-    opt.kernels = 1
+    opt.kernels = 4
 
     opt.resources = "./"
 
@@ -22,7 +22,7 @@ def getopt():
     opt.lr = 5e-4
     opt.step_size = 3
 
-    opt.batch_size = 256
+    opt.batch_size = 32
     opt.trainset = 'SD2_train'
     opt.testset = 'SD2_test'
     opt.device = torch.device('cpu')

@@ -10,6 +10,11 @@ import wandb
 import pandas as pd
 import dataloader
 
+from torchvision import datasets, transforms
+
+transform = transforms.Compose([transforms.ToTensor(),
+                                transforms.Normalize((0.5,), (0.5,)),])
+
 from config import getopt
 from models import getModels, getNames
 
@@ -18,8 +23,10 @@ def getTrainingAccuracy(y_pred, y_true, opt=None):
     y_true = y_true.detach().numpy()
     y_pred = y_pred.detach().numpy()
     
-    y_pred = np.where(y_pred > 0, 1, 0)
-    y_pred = np.where(y_pred == 0, -1, y_pred)
+    # y_pred = np.where(y_pred > 0, 1, 0)
+    # y_pred = np.where(y_pred == 0, -1, y_pred)
+    
+    y_pred = np.argmax(y_pred, axis=1)
 
     # Save the predictions
     acc = accuracy_score(y_true, y_pred)
@@ -44,8 +51,10 @@ def train(train_dataloader, model, model_name, criterion, optimizer, opt, epoch,
         batch_size = X.shape[0]
 
         # X = X.to(opt.device)
-
         # y = y.to(opt.device)
+        
+        # Flatten MNIST Images
+        X = X.view(X.shape[0], -1) 
 
         optimizer.zero_grad()
 
@@ -86,6 +95,9 @@ def evaluate(val_dataloader, model, model_name, criterion, epoch, opt):
         # y = y.to(opt.device)
         # X = X.to(opt.device)
         
+        # Flatten MNIST Images
+        X = X.view(X.shape[0], -1)
+        
         with torch.no_grad():
             y_pred = model(X)
             
@@ -95,8 +107,10 @@ def evaluate(val_dataloader, model, model_name, criterion, epoch, opt):
         y = y.detach().numpy()
         y_pred = y_pred.detach().numpy()
         
-        y_pred = np.where(y_pred > 0, 1, 0)
-        y_pred = np.where(y_pred == 0, -1, y_pred)
+        y_pred = np.argmax(y_pred, axis=1)
+        
+        # y_pred = np.where(y_pred > 0, 1, 0)
+        # y_pred = np.where(y_pred == 0, -1, y_pred)
         
         # Save the predictions
         targets.append(y)
@@ -110,6 +124,8 @@ def evaluate(val_dataloader, model, model_name, criterion, epoch, opt):
     loss /= len(val_dataloader)
     wandb.log({"Validation Loss" : {model_name: loss.item()}})
     
+    print(targets.shape, preds.shape)
+    print(type(targets), type(preds))
     acc = accuracy_score(targets, preds)
     print("Accuracy is", acc)
     wandb.log({"Validation Accuracy" : {model_name: acc}})
@@ -117,17 +133,25 @@ def evaluate(val_dataloader, model, model_name, criterion, epoch, opt):
 if __name__ == '__main__':
     opt = getopt()
     
+    w = wandb.init(project='NNs',
+                       entity='vicentevivan')
+    
     model = getModels()[0]
     model_name = getNames()[0]
     # model = model.to(opt.device)
-    criterion = torch.nn.MSELoss()
+    # criterion = torch.nn.MSELoss()
+    criterion = torch.nn.CrossEntropyLoss()
     optimizer = torch.optim.Adam(model.parameters(), lr=opt.lr)
     
-    train_dataset = dataloader.SD2(split='train', opt=opt)
-    val_dataset = dataloader.SD2(split='test', opt=opt)
-
-    train_dataloader = torch.utils.data.DataLoader(train_dataset, batch_size=opt.batch_size, num_workers=opt.kernels, shuffle=False, drop_last=False)
-    val_dataloader = torch.utils.data.DataLoader(val_dataset, batch_size=opt.batch_size, num_workers=opt.kernels, shuffle=False, drop_last=False)
+    # train_dataset = dataloader.SD2(split='train', opt=opt)
+    # val_dataset = dataloader.SD2(split='test', opt=opt)
+    # train_dataloader = torch.utils.data.DataLoader(train_dataset, batch_size=opt.batch_size, num_workers=opt.kernels, shuffle=False, drop_last=False)
+    # val_dataloader = torch.utils.data.DataLoader(val_dataset, batch_size=opt.batch_size, num_workers=opt.kernels, shuffle=False, drop_last=False)
+    
+    train_dataset = datasets.CIFAR10('PATH_TO_STORE_TRAINSET', download=True, train=True, transform=transform)
+    val_dataset= datasets.CIFAR10('PATH_TO_STORE_TESTSET', download=True, train=False, transform=transform)
+    train_dataloader = torch.utils.data.DataLoader(train_dataset, batch_size=16, shuffle=True)
+    val_dataloader  = torch.utils.data.DataLoader(val_dataset, batch_size=16, shuffle=True)
     
     for epoch in range(3):
         if not opt.evaluate:
@@ -135,6 +159,6 @@ if __name__ == '__main__':
 
             loss = train(train_dataloader=train_dataloader, model=model, model_name=model_name, criterion=criterion, optimizer=optimizer, opt=opt, epoch=epoch)
 
-        evaluate(val_dataloader=val_dataloader, model=model, epoch=epoch, opt=opt)
+        evaluate(val_dataloader=val_dataloader, model=model, model_name="Test", criterion=criterion, epoch=epoch, opt=opt)
     
     

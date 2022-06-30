@@ -1,0 +1,54 @@
+Outputting loss every 100 batches
+Validating every 500 batches
+Starting Epoch 0
+
+
+
+
+
+
+
+
+
+Epoch 0 Loss: 1.0475:  98% 917/938 [00:19<00:00, 44.34it/s]
+The loss of epoch 0 was  1.0440856830906005
+(10000,) (10000,)
+<class 'numpy.ndarray'> <class 'numpy.ndarray'>
+Accuracy is 0.9372
+Outputting loss every 100 batches
+Validating every 500 batches
+Epoch 0 Loss: 1.0475: 100% 938/938 [00:19<00:00, 47.05it/s]
+100% 157/157 [00:01<00:00, 101.38it/s]
+
+
+
+
+
+
+
+
+
+Epoch 1 Loss: 0.9347:  94% 880/938 [00:18<00:01, 48.01it/s]
+Epoch 1 Loss: 0.9326: 100% 938/938 [00:19<00:00, 48.29it/s]
+ 56% 88/157 [00:00<00:00, 102.17it/s]
+(10000,) (10000,)
+<class 'numpy.ndarray'> <class 'numpy.ndarray'>
+Accuracy is 0.9511
+Outputting loss every 100 batches
+Validating every 500 batches
+100% 157/157 [00:01<00:00, 102.38it/s]
+
+
+
+
+
+
+
+
+Epoch 2 Loss: 0.9069:  91% 850/938 [00:17<00:01, 48.51it/s]
+Epoch 2 Loss: 0.9061: 100% 938/938 [00:19<00:00, 48.60it/s]
+ 14% 22/157 [00:00<00:01, 102.56it/s]
+(10000,) (10000,)
+<class 'numpy.ndarray'> <class 'numpy.ndarray'>
+
+100% 157/157 [00:01<00:00, 101.72it/s]

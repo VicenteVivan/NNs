@@ -1,0 +1,18 @@
+Outputting loss every 100 batches
+Validating every 500 batches
+Starting Epoch 0
+
+
+
+
+
+
+
+
+
+Epoch 0 Loss: -0.9986:  99% 927/938 [00:19<00:00, 47.73it/s]
+Epoch 0 Loss: -0.9986: 100% 938/938 [00:19<00:00, 47.35it/s]
+Traceback (most recent call last):
+  File "/Users/vicentevivanco/Desktop/Research/Mathematics/NNs/train_and_eval.py", line 162, in <module>
+    evaluate(val_dataloader=val_dataloader, model=model, epoch=epoch, opt=opt)
+TypeError: evaluate() missing 2 required positional arguments: 'model_name' and 'criterion'

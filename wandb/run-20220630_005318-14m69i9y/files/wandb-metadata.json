@@ -1,0 +1,22 @@
+{
+    "os": "macOS-10.16-x86_64-i386-64bit",
+    "python": "3.9.12",
+    "heartbeatAt": "2022-06-30T04:53:20.503893",
+    "startedAt": "2022-06-30T04:53:18.329117",
+    "docker": null,
+    "cpu_count": 8,
+    "cuda": null,
+    "args": [],
+    "state": "running",
+    "program": "/Users/vicentevivanco/Desktop/Research/Mathematics/NNs/train_and_eval.py",
+    "codePath": "train_and_eval.py",
+    "git": {
+        "remote": "https://github.com/VicenteVivan/NNs.git",
+        "commit": "cca72ab2f4f73e4724b50ac62adaa87316462dca"
+    },
+    "email": "vicente.vivancoc@gmail.com",
+    "root": "/Users/vicentevivanco/Desktop/Research/Mathematics/NNs",
+    "host": "MacBook-Pro-de-Vicente.local",
+    "username": "vicentevivanco",
+    "executable": "/Users/vicentevivanco/opt/anaconda3/bin/python"
+}

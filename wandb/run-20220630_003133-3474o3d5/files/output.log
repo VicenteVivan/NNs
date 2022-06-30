@@ -1,0 +1,16 @@
+Outputting loss every 100 batches
+Validating every 500 batches
+Starting Epoch 0
+  0% 0/938 [00:00<?, ?it/s]
+Traceback (most recent call last):
+  File "/Users/vicentevivanco/Desktop/Research/Mathematics/NNs/train_and_eval.py", line 158, in <module>
+    loss = train(train_dataloader=train_dataloader, model=model, model_name=model_name, criterion=criterion, optimizer=optimizer, opt=opt, epoch=epoch)
+  File "/Users/vicentevivanco/Desktop/Research/Mathematics/NNs/train_and_eval.py", line 74, in train
+    wandb.log({"Training Accuracy" : {model_name: getTrainingAccuracy(preds, y, opt)}})
+  File "/Users/vicentevivanco/Desktop/Research/Mathematics/NNs/train_and_eval.py", line 30, in getTrainingAccuracy
+    acc = accuracy_score(y_true, y_pred)
+  File "/Users/vicentevivanco/opt/anaconda3/lib/python3.9/site-packages/sklearn/metrics/_classification.py", line 211, in accuracy_score
+    y_type, y_true, y_pred = _check_targets(y_true, y_pred)
+  File "/Users/vicentevivanco/opt/anaconda3/lib/python3.9/site-packages/sklearn/metrics/_classification.py", line 93, in _check_targets
+    raise ValueError(
+ValueError: Classification metrics can't handle a mix of multiclass and multilabel-indicator targets
