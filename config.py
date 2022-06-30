@@ -6,7 +6,8 @@ def getopt():
     parser = argparse.ArgumentParser()
 
     opt = parser.parse_args()
-    opt.kernels = multiprocessing.cpu_count()
+    # opt.kernels = multiprocessing.cpu_count()
+    opt.kernels = 1
 
     opt.resources = "./"
 
