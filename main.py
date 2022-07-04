@@ -37,8 +37,14 @@ if __name__ == '__main__':
     #criterion = torch.nn.MSELoss()
     
     # Load MNIST
-    train_dataset = datasets.MNIST('PATH_TO_STORE_TRAINSET', download=True, train=True, transform=transform)
-    val_dataset= datasets.MNIST('PATH_TO_STORE_TESTSET', download=True, train=False, transform=transform)
+    # train_dataset = datasets.MNIST('PATH_TO_STORE_TRAINSET', download=True, train=True, transform=transform)
+    # val_dataset= datasets.MNIST('PATH_TO_STORE_TESTSET', download=True, train=False, transform=transform)
+    # train_dataloader = torch.utils.data.DataLoader(train_dataset, batch_size=64, shuffle=True)
+    # val_dataloader  = torch.utils.data.DataLoader(val_dataset, batch_size=64, shuffle=True)
+    
+    # Load FashionMNIST
+    train_dataset = datasets.FashionMNIST('PATH_TO_STORE_TRAINSET', download=True, train=True, transform=transform)
+    val_dataset= datasets.FashionMNIST('PATH_TO_STORE_TESTSET', download=True, train=False, transform=transform)
     train_dataloader = torch.utils.data.DataLoader(train_dataset, batch_size=64, shuffle=True)
     val_dataloader  = torch.utils.data.DataLoader(val_dataset, batch_size=64, shuffle=True)
     
@@ -52,7 +58,7 @@ if __name__ == '__main__':
                        entity='vicentevivan',
                        reinit=True,
                        config=config,
-                       group="MNIST Switch")
+                       group="Fashion MNIST Switch")
         
         wandb.run.name = opt.description
         
