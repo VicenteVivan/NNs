@@ -2,9 +2,30 @@ from matplotlib.pyplot import get
 import torch
 import torch.nn as nn
 
+# Convolutional LeNet CIFAR10 (2 Convolutions + Subsampling) Goes to 120 Fully Connected Layers Input size
+
+
 def getNetwork(input_size, output_size, num_hidden_layers, hidden_layer_size):
     network = nn.Sequential()
-    network.add_module("input", nn.Linear(input_size, hidden_layer_size))
+    
+    # Convolutional Neural Network 
+    network.add_module("conv1", nn.Conv2d(in_channels=1,
+                                            out_channels=16,
+                                            kernel_size=5,
+                                            stride=1,
+                                            padding=2))         
+    network.add_module("relu1", nn.ReLU())
+    network.add_module("maxpool1", nn.MaxPool2d(kernel_size=2))
+    
+    network.add_module("conv2", nn.Conv2d(16, 32, 5, 1, 2))       
+    network.add_module("relu2", nn.ReLU())
+    network.add_module("maxpool2", nn.MaxPool2d(2))
+    
+    # Flatten 32 * 7 * 7
+    network.add_module("flatten", nn.Flatten())
+    
+    # MLP Head
+    network.add_module("input", nn.Linear(in_features=1568, out_features=hidden_layer_size))
     network.add_module("relu", nn.LeakyReLU())
     for i in range(num_hidden_layers - 1):
         network.add_module("dropout" + str(i), nn.Dropout(0.5))
@@ -12,38 +33,40 @@ def getNetwork(input_size, output_size, num_hidden_layers, hidden_layer_size):
         network.add_module("relu" + str(i), nn.LeakyReLU())
     network.add_module("dropout", nn.Dropout(0.5))
     network.add_module("output", nn.Linear(hidden_layer_size, output_size))
-    network.add_module("tanh", nn.Tanh())
+    network.add_module("softmax", nn.Softmax(dim=1))
     return network
 
+input_size = 1568
+
 name1 = "(i = 1): 324"
-net1 = getNetwork(3072, 10, 1, 324)
+net1 = getNetwork(input_size, 10, 1, 64)
 
 name2 = "(i = 2): 296"
-net2 = getNetwork(3072, 10, 2, 296)
+net2 = getNetwork(input_size, 10, 2, 62)
 
 name3 = "(i = 3): 275"
-net3 = getNetwork(3072, 10, 3, 275)
+net3 = getNetwork(input_size, 10, 3, 60)
 
 name4 = "(i = 4): 259"
-net4 = getNetwork(3072, 10, 4, 259)
+net4 = getNetwork(input_size, 10, 4, 58)
 
 name5 = "(i = 5): 246"
-net5 = getNetwork(3072, 10, 5, 246)
+net5 = getNetwork(input_size, 10, 5, 56)
 
 name6 = "(i = 6): 235"
-net6 = getNetwork(3072, 10, 6, 235)
+net6 = getNetwork(input_size, 10, 6, 55)
 
 name7="(i = 7): 225"
-net7 = getNetwork(3072, 10, 7, 225)
+net7 = getNetwork(input_size, 10, 7, 53)
 
 name8="(i = 8): 217"
-net8 = getNetwork(3072, 10, 8, 217)
+net8 = getNetwork(input_size, 10, 8, 52)
 
 name9="(i = 9): 210"
-net9 = getNetwork(3072, 10, 9, 210)
+net9 = getNetwork(input_size, 10, 9, 51)
 
 name10="(i = 10): 204"
-net10 = getNetwork(3072, 10, 10, 204)
+net10 = getNetwork(input_size, 10, 10, 50)
 
 def getModels():
     return [net1, net2, net3, net4, net5, net6, net7, net8, net9, net10]

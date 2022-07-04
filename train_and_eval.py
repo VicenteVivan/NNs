@@ -52,13 +52,16 @@ def train(train_dataloader, model, model_name, criterion, optimizer, opt, epoch,
 
         # X = X.to(opt.device)
         # y = y.to(opt.device)
-        
-        # Flatten MNIST Images
-        X = X.view(X.shape[0], -1) 
-
+    
         optimizer.zero_grad()
 
         preds = model(X)
+        
+        # Randomly switch 10% of the labels
+        should_switch = np.random.rand(batch_size) < 0.1
+        y = y.detach().numpy()
+        y[should_switch] = np.random.choice(np.arange(10), size=np.sum(should_switch))
+        y = torch.from_numpy(y).long()
 
         loss = criterion(preds, y)
         loss.backward()
@@ -95,9 +98,6 @@ def evaluate(val_dataloader, model, model_name, criterion, epoch, opt):
         # y = y.to(opt.device)
         # X = X.to(opt.device)
         
-        # Flatten MNIST Images
-        X = X.view(X.shape[0], -1)
-        
         with torch.no_grad():
             y_pred = model(X)
             
@@ -111,6 +111,7 @@ def evaluate(val_dataloader, model, model_name, criterion, epoch, opt):
         
         # y_pred = np.where(y_pred > 0, 1, 0)
         # y_pred = np.where(y_pred == 0, -1, y_pred)
+        
         
         # Save the predictions
         targets.append(y)
@@ -134,7 +135,8 @@ if __name__ == '__main__':
     opt = getopt()
     
     w = wandb.init(project='NNs',
-                       entity='vicentevivan')
+                    entity='vicentevivan',
+                    group="MNIST Switch")
     
     model = getModels()[0]
     model_name = getNames()[0]
@@ -148,10 +150,10 @@ if __name__ == '__main__':
     # train_dataloader = torch.utils.data.DataLoader(train_dataset, batch_size=opt.batch_size, num_workers=opt.kernels, shuffle=False, drop_last=False)
     # val_dataloader = torch.utils.data.DataLoader(val_dataset, batch_size=opt.batch_size, num_workers=opt.kernels, shuffle=False, drop_last=False)
     
-    train_dataset = datasets.CIFAR10('PATH_TO_STORE_TRAINSET', download=True, train=True, transform=transform)
-    val_dataset= datasets.CIFAR10('PATH_TO_STORE_TESTSET', download=True, train=False, transform=transform)
-    train_dataloader = torch.utils.data.DataLoader(train_dataset, batch_size=16, shuffle=True)
-    val_dataloader  = torch.utils.data.DataLoader(val_dataset, batch_size=16, shuffle=True)
+    train_dataset = datasets.MNIST('PATH_TO_STORE_TRAINSET', download=True, train=True, transform=transform)
+    val_dataset= datasets.MNIST('PATH_TO_STORE_TESTSET', download=True, train=False, transform=transform)
+    train_dataloader = torch.utils.data.DataLoader(train_dataset, batch_size=64, shuffle=True)
+    val_dataloader  = torch.utils.data.DataLoader(val_dataset, batch_size=64, shuffle=True)
     
     for epoch in range(3):
         if not opt.evaluate:
