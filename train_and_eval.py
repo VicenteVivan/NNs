@@ -154,9 +154,7 @@ if __name__ == '__main__':
     # val_dataset= datasets.MNIST('PATH_TO_STORE_TESTSET', download=True, train=False, transform=transform)
     # train_dataloader = torch.utils.data.DataLoader(train_dataset, batch_size=64, shuffle=True)
     # val_dataloader  = torch.utils.data.DataLoader(val_dataset, batch_size=64, shuffle=True)
-    
-    # Transform: Grayscale (1 Chanel)
-    transform = transforms.Compose(
+
     
     train_dataset = datasets.CIFAR10('PATH_TO_STORE_TRAINSET', download=True, train=True, transform=transform)
     val_dataset= datasets.CIFAR10('PATH_TO_STORE_TESTSET', download=True, train=False, transform=transform)
