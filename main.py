@@ -60,11 +60,10 @@ if __name__ == '__main__':
     NN_Names = models.getNames()
 
     for i, (model, model_name) in enumerate(zip(NN_Models, NN_Names)):
-        w = wandb.init(project='CIFAR-10',
+        w = wandb.init(project='F-MNIST',
                        entity='vicentevivan',
                        reinit=True,
-                       config=config,
-                       group="Fashion MNIST Switch")
+                       config=config)
         
         wandb.run.name = opt.description
         
