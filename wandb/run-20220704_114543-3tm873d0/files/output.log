@@ -1,0 +1,37 @@
+
+Downloading https://www.cs.toronto.edu/~kriz/cifar-10-python.tar.gz to PATH_TO_STORE_TRAINSET/cifar-10-python.tar.gz
+
+
+
+
+ 87% 147899392/170498071 [00:08<00:01, 20281925.73it/s]
+
+170499072it [00:09, 17879467.58it/s]
+Downloading https://www.cs.toronto.edu/~kriz/cifar-10-python.tar.gz to PATH_TO_STORE_TESTSET/cifar-10-python.tar.gz
+
+
+
+
+ 90% 152945664/170498071 [00:08<00:00, 20065449.38it/s]
+
+170499072it [00:09, 17910189.00it/s]
+  0% 0/782 [00:00<?, ?it/s]
+Traceback (most recent call last):
+  File "/Users/vicentevivanco/Desktop/Research/Mathematics/NNs/train_and_eval.py", line 167, in <module>
+    loss = train(train_dataloader=train_dataloader, model=model, model_name=model_name, criterion=criterion, optimizer=optimizer, opt=opt, epoch=epoch)
+  File "/Users/vicentevivanco/Desktop/Research/Mathematics/NNs/train_and_eval.py", line 58, in train
+    preds = model(X)
+  File "/Users/vicentevivanco/opt/anaconda3/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1110, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/Users/vicentevivanco/opt/anaconda3/lib/python3.9/site-packages/torch/nn/modules/container.py", line 141, in forward
+    input = module(input)
+  File "/Users/vicentevivanco/opt/anaconda3/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1110, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/Users/vicentevivanco/opt/anaconda3/lib/python3.9/site-packages/torch/nn/modules/conv.py", line 447, in forward
+    return self._conv_forward(input, self.weight, self.bias)
+  File "/Users/vicentevivanco/opt/anaconda3/lib/python3.9/site-packages/torch/nn/modules/conv.py", line 443, in _conv_forward
+    return F.conv2d(input, weight, bias, self.stride,
+RuntimeError: Given groups=1, weight of size [16, 1, 5, 5], expected input[64, 3, 32, 32] to have 1 channels, but got 3 channels instead
+Outputting loss every 100 batches
+Validating every 500 batches
+Starting Epoch 0
