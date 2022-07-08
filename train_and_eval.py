@@ -50,8 +50,8 @@ def train(train_dataloader, model, model_name, criterion, optimizer, opt, epoch,
     for i ,(X, y) in bar:
         batch_size = X.shape[0]
 
-        # X = X.to(opt.device)
-        # y = y.to(opt.device)
+        X = X.to(opt.device)
+        y = y.to(opt.device)
     
         optimizer.zero_grad()
 
@@ -95,8 +95,8 @@ def evaluate(val_dataloader, model, model_name, criterion, epoch, opt):
     model.eval() 
     
     for i, (X, y) in bar:
-        # y = y.to(opt.device)
-        # X = X.to(opt.device)
+        y = y.to(opt.device)
+        X = X.to(opt.device)
         
         with torch.no_grad():
             y_pred = model(X)
@@ -111,7 +111,6 @@ def evaluate(val_dataloader, model, model_name, criterion, epoch, opt):
         
         # y_pred = np.where(y_pred > 0, 1, 0)
         # y_pred = np.where(y_pred == 0, -1, y_pred)
-        
         
         # Save the predictions
         targets.append(y)

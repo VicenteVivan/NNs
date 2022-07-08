@@ -69,6 +69,7 @@ name10="(i = 10): 50"
 net10 = getNetwork(input_size, 10, 10, 50)
 
 def getModels():
+    for net int 
     return [net1, net2, net3, net4, net5, net6, net7, net8, net9, net10]
 
 def getNames():

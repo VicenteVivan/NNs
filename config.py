@@ -7,13 +7,13 @@ def getopt():
 
     opt = parser.parse_args()
     # opt.kernels = multiprocessing.cpu_count()
-    opt.kernels = 4
+    opt.kernels = 10
 
     opt.resources = "./"
 
     opt.size = 224
 
-    opt.n_epochs = 50
+    opt.n_epochs = 100
 
     opt.description = '100K P, 10K S'
     opt.archname = 'Sequential NN'
@@ -25,6 +25,6 @@ def getopt():
     opt.batch_size = 32
     opt.trainset = 'SD2_train'
     opt.testset = 'SD2_test'
-    opt.device = torch.device('cpu')
+    opt.device = torch.device('cuda')
 
     return opt
