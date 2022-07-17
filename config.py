@@ -6,16 +6,16 @@ def getopt():
     parser = argparse.ArgumentParser()
 
     opt = parser.parse_args()
-    # opt.kernels = multiprocessing.cpu_count()
+
     opt.kernels = 10
 
     opt.resources = "./"
 
     opt.size = 224
 
-    opt.n_epochs = 100
+    opt.n_epochs = 200
 
-    opt.description = '100K P, 10K S'
+    opt.description = '100M'
     opt.archname = 'Sequential NN'
     opt.evaluate = False
 

@@ -1,3 +1,6 @@
+from sched import scheduler
+
+
 if __name__ == '__main__':
     import os, numpy as np, argparse, time
     from tqdm import tqdm
@@ -35,23 +38,11 @@ if __name__ == '__main__':
 
     #criterion = torch.nn.MSELoss()
     
-    # Load MNIST
-    # train_dataset = datasets.MNIST('PATH_TO_STORE_TRAINSET', download=True, train=True, transform=transform)
-    # val_dataset= datasets.MNIST('PATH_TO_STORE_TESTSET', download=True, train=False, transform=transform)
-    # train_dataloader = torch.utils.data.DataLoader(train_dataset, batch_size=64, shuffle=True)
-    # val_dataloader  = torch.utils.data.DataLoader(val_dataset, batch_size=64, shuffle=True)
-    
-    # Load FashionMNIST
-    train_dataset = datasets.FashionMNIST('PATH_TO_STORE_TRAINSET', download=True, train=True, transform=transform)
-    val_dataset= datasets.FashionMNIST('PATH_TO_STORE_TESTSET', download=True, train=False, transform=transform)
+    # Load CIFAR10
+    train_dataset = datasets.CIFAR10('PATH_TO_STORE_TRAINSET', download=True, train=True, transform=transform)
+    val_dataset= datasets.CIFAR10('PATH_TO_STORE_TESTSET', download=True, train=False, transform=transform)
     train_dataloader = torch.utils.data.DataLoader(train_dataset, batch_size=64, shuffle=True)
     val_dataloader  = torch.utils.data.DataLoader(val_dataset, batch_size=64, shuffle=True)
-    
-    # Load CIFAR10
-    # train_dataset = datasets.CIFAR10('PATH_TO_STORE_TRAINSET', download=True, train=True, transform=transform)
-    # val_dataset= datasets.CIFAR10('PATH_TO_STORE_TESTSET', download=True, train=False, transform=transform)
-    # train_dataloader = torch.utils.data.DataLoader(train_dataset, batch_size=64, shuffle=True)
-    # val_dataloader  = torch.utils.data.DataLoader(val_dataset, batch_size=64, shuffle=True)
     
     criterion = nn.CrossEntropyLoss()
 
@@ -59,7 +50,7 @@ if __name__ == '__main__':
     NN_Names = models.getNames()
 
     for i, (model, model_name) in enumerate(zip(NN_Models, NN_Names)):
-        w = wandb.init(project='F-MNIST',
+        w = wandb.init(project='CIFAR-10 NoBN',
                        entity='vicentevivan',
                        reinit=True,
                        config=config)
@@ -68,7 +59,8 @@ if __name__ == '__main__':
         
         model = model.to(opt.device)
         
-        optimizer = torch.optim.Adam(model.parameters(), lr=opt.lr)
+        optimizer = torch.optim.SGD(model.parameters(), lr=opt.lr, momentum=0.9)
+        
         _ = model.to(opt.device)
 
         wandb.watch(model, criterion, log="all")
@@ -77,8 +69,6 @@ if __name__ == '__main__':
             evaluate(val_dataloader=val_dataloader, model=model, model_name=model_name, criterion=criterion, epoch=epoch, opt=opt)
             if not opt.evaluate:
                 _ = model.train()
-
                 loss = train(train_dataloader=train_dataloader, model=model, model_name=model_name, criterion=criterion, optimizer=optimizer, opt=opt, epoch=epoch)
             
-        
         w.finish()

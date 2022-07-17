@@ -57,10 +57,16 @@ def train(train_dataloader, model, model_name, criterion, optimizer, opt, epoch,
 
         preds = model(X)
         
-        # Randomly switch 10% of the labels
-        should_switch = np.random.rand(batch_size) < 0.1
+        # Randomly switch 10% of the labels (Numpy)
+        # should_switch = np.random.rand(batch_size) < 0.1
+        # y = y.detach().numpy()
+        # y[should_switch] = np.random.choice(np.arange(10), size=np.sum(should_switch))
+        # y = torch.from_numpy(y).long()
+        
+        # Randomly switch 10% of the labels (Torch)
+        should_switch = torch.rand(batch_size) < 0.1
         y = y.detach().numpy()
-        y[should_switch] = np.random.choice(np.arange(10), size=np.sum(should_switch))
+        y[should_switch] = torch.randint(0, 10, (np.sum(should_switch))).long()
         y = torch.from_numpy(y).long()
 
         loss = criterion(preds, y)
@@ -143,29 +149,4 @@ if __name__ == '__main__':
     # criterion = torch.nn.MSELoss()
     criterion = torch.nn.CrossEntropyLoss()
     optimizer = torch.optim.Adam(model.parameters(), lr=opt.lr)
-    
-    # train_dataset = dataloader.SD2(split='train', opt=opt)
-    # val_dataset = dataloader.SD2(split='test', opt=opt)
-    # train_dataloader = torch.utils.data.DataLoader(train_dataset, batch_size=opt.batch_size, num_workers=opt.kernels, shuffle=False, drop_last=False)
-    # val_dataloader = torch.utils.data.DataLoader(val_dataset, batch_size=opt.batch_size, num_workers=opt.kernels, shuffle=False, drop_last=False)
-    
-    # train_dataset = datasets.MNIST('PATH_TO_STORE_TRAINSET', download=True, train=True, transform=transform)
-    # val_dataset= datasets.MNIST('PATH_TO_STORE_TESTSET', download=True, train=False, transform=transform)
-    # train_dataloader = torch.utils.data.DataLoader(train_dataset, batch_size=64, shuffle=True)
-    # val_dataloader  = torch.utils.data.DataLoader(val_dataset, batch_size=64, shuffle=True)
-
-    
-    train_dataset = datasets.CIFAR10('PATH_TO_STORE_TRAINSET', download=True, train=True, transform=transform)
-    val_dataset= datasets.CIFAR10('PATH_TO_STORE_TESTSET', download=True, train=False, transform=transform)
-    train_dataloader = torch.utils.data.DataLoader(train_dataset, batch_size=64, shuffle=True)
-    val_dataloader  = torch.utils.data.DataLoader(val_dataset, batch_size=64, shuffle=True)
-    
-    for epoch in range(3):
-        if not opt.evaluate:
-            _ = model.train()
-
-            loss = train(train_dataloader=train_dataloader, model=model, model_name=model_name, criterion=criterion, optimizer=optimizer, opt=opt, epoch=epoch)
-
-        evaluate(val_dataloader=val_dataloader, model=model, model_name="Test", criterion=criterion, epoch=epoch, opt=opt)
-    
     
