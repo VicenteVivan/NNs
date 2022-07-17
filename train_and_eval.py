@@ -110,8 +110,8 @@ def evaluate(val_dataloader, model, model_name, criterion, epoch, opt):
         loss += criterion(y_pred, y)
         
         # Discretize the predictions
-        y = y.detach().numpy()
-        y_pred = y_pred.detach().numpy()
+        y = y.detach().cpu().numpy()
+        y_pred = y_pred.detach().cpu().numpy()
         
         y_pred = np.argmax(y_pred, axis=1)
         
