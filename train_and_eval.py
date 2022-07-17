@@ -20,8 +20,8 @@ from models import getModels, getNames
 
 def getTrainingAccuracy(y_pred, y_true, opt=None): 
     # Discretize the predictions
-    y_true = y_true.detach().numpy()
-    y_pred = y_pred.detach().numpy()
+    y_true = y_true.detach().cpu().numpy()
+    y_pred = y_pred.detach().cpu().numpy()
     
     # y_pred = np.where(y_pred > 0, 1, 0)
     # y_pred = np.where(y_pred == 0, -1, y_pred)
