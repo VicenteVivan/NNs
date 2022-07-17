@@ -60,6 +60,7 @@ if __name__ == '__main__':
         model = model.to(opt.device)
         
         optimizer = torch.optim.SGD(model.parameters(), lr=opt.lr, momentum=0.9)
+        scheduler = torch.optim.lr_scheduler.ReduceLROnPlateau(optimizer, 'min', patience=5)
         
         _ = model.to(opt.device)
 
@@ -70,5 +71,6 @@ if __name__ == '__main__':
             if not opt.evaluate:
                 _ = model.train()
                 loss = train(train_dataloader=train_dataloader, model=model, model_name=model_name, criterion=criterion, optimizer=optimizer, opt=opt, epoch=epoch)
+                scheduler.step(loss)
             
         w.finish()
