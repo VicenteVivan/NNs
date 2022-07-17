@@ -73,4 +73,5 @@ if __name__ == '__main__':
                 loss = train(train_dataloader=train_dataloader, model=model, model_name=model_name, criterion=criterion, optimizer=optimizer, opt=opt, epoch=epoch)
                 scheduler.step(loss)
             
+        del model
         w.finish()
