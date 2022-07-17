@@ -65,7 +65,7 @@ def train(train_dataloader, model, model_name, criterion, optimizer, opt, epoch,
         
         # Randomly switch 10% of the labels (Torch)
         should_switch = torch.rand(batch_size) < 0.1
-        y = y.detach().numpy()
+        y = y.detach().cpu().numpy()
         y[should_switch] = torch.randint(0, 10, (np.sum(should_switch))).long()
         y = torch.from_numpy(y).long()
 

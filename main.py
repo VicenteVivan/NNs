@@ -53,7 +53,6 @@ if __name__ == '__main__':
         w = wandb.init(project='CIFAR-10 NoBN',
                        entity='vicentevivan',
                        reinit=True, 
-                       settings=wandb.Settings(start_method='fork'),
                        config=config)
         
         wandb.run.name = opt.description
