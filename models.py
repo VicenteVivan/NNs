@@ -30,6 +30,7 @@ def getNetwork(input_size, output_size, num_hidden_layers, hidden_layer_size):
         network.add_module("hidden" + str(i), nn.Linear(hidden_layer_size, hidden_layer_size))
         network.add_module("relu" + str(i), nn.ReLU())
     network.add_module("output", nn.Linear(hidden_layer_size, output_size))
+    network.add_module("softmax", nn.Softmax(dim=1))
     return network
 
 # input_size = 1568
