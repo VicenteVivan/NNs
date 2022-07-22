@@ -13,7 +13,7 @@ def getopt():
 
     opt.size = 224
 
-    opt.n_epochs = 150
+    opt.n_epochs = 50
 
     opt.description = '100M'
     opt.archname = 'Sequential NN'

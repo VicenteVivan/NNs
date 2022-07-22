@@ -24,7 +24,7 @@ def getNetwork(input_size, output_size, num_hidden_layers, hidden_layer_size):
     network.add_module("flatten", nn.Flatten())
     
     # MLP Head
-    network.add_module("input", nn.Linear(in_features=2048, out_features=hidden_layer_size))
+    network.add_module("input", nn.Linear(in_features=input_size, out_features=hidden_layer_size))
     network.add_module("relu", nn.ReLU())
     for i in range(num_hidden_layers - 1):
         network.add_module("hidden" + str(i), nn.Linear(hidden_layer_size, hidden_layer_size))
@@ -32,38 +32,38 @@ def getNetwork(input_size, output_size, num_hidden_layers, hidden_layer_size):
     network.add_module("output", nn.Linear(hidden_layer_size, output_size))
     return network
 
-# input_size = 1568
-input_size = 2048
+input_size = 1568
+# input_size = 2048
 
-name1 = "(i = 1): 48591"
-net1 = getNetwork(input_size, 10, 1, 48591)
+name1 = "(i = 1): 63371"
+net1 = getNetwork(input_size, 10, 1, 63371)
 
-name2 = "(i = 2): 9024"
-net2 = getNetwork(input_size, 10, 2, 9024)
+name2 = "(i = 2): 9242"
+net2 = getNetwork(input_size, 10, 2, 9242)
 
-name3 = "(i = 3): 6575"
-net3 = getNetwork(input_size, 10, 3, 6575)
+name3 = "(i = 3): 6688"
+net3 = getNetwork(input_size, 10, 3, 6688)
 
-name4 = "(i = 4): 5441"
-net4 = getNetwork(input_size, 10, 4, 5441)
+name4 = "(i = 4): 5516"
+net4 = getNetwork(input_size, 10, 4, 5516)
 
-name5 = "(i = 5): 4749"
-net5 = getNetwork(input_size, 10, 5, 4749)
+name5 = "(i = 5): 4807"
+net5 = getNetwork(input_size, 10, 5, 4807)
 
-name6 = "(i = 6): 4271"
-net6 = getNetwork(input_size, 10, 6, 4271)
+name6 = "(i = 6): 4317"
+net6 = getNetwork(input_size, 10, 6, 4317)
 
-name7="(i = 7): 3915"
-net7 = getNetwork(input_size, 10, 7, 3915)
+name7="(i = 7): 3953"
+net7 = getNetwork(input_size, 10, 7, 3953)
 
-name8="(i = 8): 3636"
-net8 = getNetwork(input_size, 10, 8, 3636)
+name8="(i = 8): 3669"
+net8 = getNetwork(input_size, 10, 8, 3669)
 
-name9="(i = 9): 3409"
-net9 = getNetwork(input_size, 10, 9, 3409)
+name9="(i = 9): 3438"
+net9 = getNetwork(input_size, 10, 9, 3438)
 
-name10="(i = 10): 3221"
-net10 = getNetwork(input_size, 10, 10, 3221)
+name10="(i = 10): 3247"
+net10 = getNetwork(input_size, 10, 10, 3247)
 
 def getModels():
 

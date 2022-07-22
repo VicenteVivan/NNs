@@ -39,10 +39,10 @@ if __name__ == '__main__':
     #criterion = torch.nn.MSELoss()
     
     # Load CIFAR10
-    train_dataset = datasets.CIFAR10('PATH_TO_STORE_TRAINSET', download=True, train=True, transform=transform)
-    val_dataset= datasets.CIFAR10('PATH_TO_STORE_TESTSET', download=True, train=False, transform=transform)
-    train_dataloader = torch.utils.data.DataLoader(train_dataset, batch_size=64, shuffle=True)
-    val_dataloader  = torch.utils.data.DataLoader(val_dataset, batch_size=64, shuffle=True)
+    # train_dataset = datasets.CIFAR10('PATH_TO_STORE_TRAINSET', download=True, train=True, transform=transform)
+    # val_dataset= datasets.CIFAR10('PATH_TO_STORE_TESTSET', download=True, train=False, transform=transform)
+    # train_dataloader = torch.utils.data.DataLoader(train_dataset, batch_size=64, shuffle=True)
+    # val_dataloader  = torch.utils.data.DataLoader(val_dataset, batch_size=64, shuffle=True)
     
     # Load CIFAR100
     # train_dataset = datasets.CIFAR100('PATH_TO_STORE_TRAINSET', download=True, train=True, transform=transform)
@@ -50,13 +50,19 @@ if __name__ == '__main__':
     # train_dataloader = torch.utils.data.DataLoader(train_dataset, batch_size=opt.batch_size, shuffle=True)
     # val_dataloader  = torch.utils.data.DataLoader(val_dataset, batch_size=opt.batch_size, shuffle=True)
     
+    # Load MNIST
+    train_dataset = datasets.MNIST('PATH_TO_STORE_TRAINSET', download=True, train=True, transform=transform)
+    val_dataset= datasets.MNIST('PATH_TO_STORE_TESTSET', download=True, train=False, transform=transform)
+    train_dataloader = torch.utils.data.DataLoader(train_dataset, batch_size=opt.batch_size, shuffle=True)
+    val_dataloader  = torch.utils.data.DataLoader(val_dataset, batch_size=opt.batch_size, shuffle=True)
+    
     criterion = nn.CrossEntropyLoss()
 
     NN_Models = models.getModels()
     NN_Names = models.getNames()
 
     for i, (model, model_name) in enumerate(zip(NN_Models, NN_Names)):
-        w = wandb.init(project='CIFAR-10 NoBN 2',
+        w = wandb.init(project='MNIST NoBN',
                        entity='vicentevivan',
                        reinit=True, 
                        config=config)
