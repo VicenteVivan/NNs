@@ -9,7 +9,7 @@ def getNetwork(input_size, output_size, num_hidden_layers, hidden_layer_size):
     network = nn.Sequential()
     
     # Convolutional Neural Network 
-    network.add_module("conv1", nn.Conv2d(in_channels=3,
+    network.add_module("conv1", nn.Conv2d(in_channels=1,
                                             out_channels=16,
                                             kernel_size=5,
                                             stride=1,
