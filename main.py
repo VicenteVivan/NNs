@@ -39,10 +39,16 @@ if __name__ == '__main__':
     #criterion = torch.nn.MSELoss()
     
     # Load CIFAR10
-    train_dataset = datasets.CIFAR10('PATH_TO_STORE_TRAINSET', download=True, train=True, transform=transform)
-    val_dataset= datasets.CIFAR10('PATH_TO_STORE_TESTSET', download=True, train=False, transform=transform)
-    train_dataloader = torch.utils.data.DataLoader(train_dataset, batch_size=64, shuffle=True)
-    val_dataloader  = torch.utils.data.DataLoader(val_dataset, batch_size=64, shuffle=True)
+    # train_dataset = datasets.CIFAR10('PATH_TO_STORE_TRAINSET', download=True, train=True, transform=transform)
+    # val_dataset= datasets.CIFAR10('PATH_TO_STORE_TESTSET', download=True, train=False, transform=transform)
+    # train_dataloader = torch.utils.data.DataLoader(train_dataset, batch_size=64, shuffle=True)
+    # val_dataloader  = torch.utils.data.DataLoader(val_dataset, batch_size=64, shuffle=True)
+    
+    # Load CIFAR100
+    train_dataset = datasets.CIFAR100('PATH_TO_STORE_TRAINSET', download=True, train=True, transform=transform)
+    val_dataset= datasets.CIFAR100('PATH_TO_STORE_TESTSET', download=True, train=False, transform=transform)
+    train_dataloader = torch.utils.data.DataLoader(train_dataset, batch_size=opt.batch_size, shuffle=True)
+    val_dataloader  = torch.utils.data.DataLoader(val_dataset, batch_size=opt.batch_size, shuffle=True)
     
     criterion = nn.CrossEntropyLoss()
 
@@ -50,7 +56,7 @@ if __name__ == '__main__':
     NN_Names = models.getNames()
 
     for i, (model, model_name) in enumerate(zip(NN_Models, NN_Names)):
-        w = wandb.init(project='CIFAR-10 NoBN',
+        w = wandb.init(project='CIFAR-100 NoBN',
                        entity='vicentevivan',
                        reinit=True, 
                        config=config)
@@ -60,7 +66,7 @@ if __name__ == '__main__':
         model = model.to(opt.device)
         
         optimizer = torch.optim.SGD(model.parameters(), lr=opt.lr, momentum=0.9)
-        scheduler = torch.optim.lr_scheduler.ReduceLROnPlateau(optimizer, 'min', patience=5)
+        scheduler = torch.optim.lr_scheduler.StepLR(optimizer, step_size=5, gamma=0.5)
         
         _ = model.to(opt.device)
 
