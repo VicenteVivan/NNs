@@ -13,9 +13,9 @@ def getopt():
 
     opt.size = 224
 
-    opt.n_epochs = 25
+    opt.n_epochs = 150
 
-    opt.description = '100M'
+    opt.description = '100M Cifar100'
     opt.archname = 'Sequential NN'
     opt.evaluate = False
 

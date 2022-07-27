@@ -45,10 +45,10 @@ if __name__ == '__main__':
     # val_dataloader  = torch.utils.data.DataLoader(val_dataset, batch_size=64, shuffle=True)
     
     # Load CIFAR100
-    # train_dataset = datasets.CIFAR100('PATH_TO_STORE_TRAINSET', download=True, train=True, transform=transform)
-    # val_dataset= datasets.CIFAR100('PATH_TO_STORE_TESTSET', download=True, train=False, transform=transform)
-    # train_dataloader = torch.utils.data.DataLoader(train_dataset, batch_size=opt.batch_size, shuffle=True)
-    # val_dataloader  = torch.utils.data.DataLoader(val_dataset, batch_size=opt.batch_size, shuffle=True)
+    train_dataset = datasets.CIFAR100('PATH_TO_STORE_TRAINSET', download=True, train=True, transform=transform)
+    val_dataset= datasets.CIFAR100('PATH_TO_STORE_TESTSET', download=True, train=False, transform=transform)
+    train_dataloader = torch.utils.data.DataLoader(train_dataset, batch_size=opt.batch_size, shuffle=True)
+    val_dataloader  = torch.utils.data.DataLoader(val_dataset, batch_size=opt.batch_size, shuffle=True)
     
     # Load MNIST
     # train_dataset = datasets.MNIST('PATH_TO_STORE_TRAINSET', download=True, train=True, transform=transform)
@@ -57,10 +57,10 @@ if __name__ == '__main__':
     # val_dataloader  = torch.utils.data.DataLoader(val_dataset, batch_size=opt.batch_size, shuffle=True)
     
     # Load FMNIST
-    train_dataset = datasets.FashionMNIST('PATH_TO_STORE_TRAINSET', download=True, train=True, transform=transform)
-    val_dataset= datasets.FashionMNIST('PATH_TO_STORE_TESTSET', download=True, train=False, transform=transform)
-    train_dataloader = torch.utils.data.DataLoader(train_dataset, batch_size=opt.batch_size, shuffle=True)
-    val_dataloader  = torch.utils.data.DataLoader(val_dataset, batch_size=opt.batch_size, shuffle=True)
+    # train_dataset = datasets.FashionMNIST('PATH_TO_STORE_TRAINSET', download=True, train=True, transform=transform)
+    # val_dataset= datasets.FashionMNIST('PATH_TO_STORE_TESTSET', download=True, train=False, transform=transform)
+    # train_dataloader = torch.utils.data.DataLoader(train_dataset, batch_size=opt.batch_size, shuffle=True)
+    # val_dataloader  = torch.utils.data.DataLoader(val_dataset, batch_size=opt.batch_size, shuffle=True)
     
     
     criterion = nn.CrossEntropyLoss()

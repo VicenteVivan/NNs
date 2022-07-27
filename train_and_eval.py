@@ -57,12 +57,6 @@ def train(train_dataloader, model, model_name, criterion, optimizer, opt, epoch,
 
         preds = model(X)
         
-        # Randomly switch 10% of the labels (Numpy)
-        # should_switch = np.random.rand(batch_size) < 0.1
-        # y = y.detach().numpy()
-        # y[should_switch] = np.random.choice(np.arange(10), size=np.sum(should_switch))
-        # y = torch.from_numpy(y).long()
-        
         loss = criterion(preds, y)
         loss.backward()
         optimizer.step()
