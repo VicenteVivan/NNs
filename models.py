@@ -44,11 +44,9 @@ def getNetwork(input_size, output_size, num_hidden_layers, hidden_layer_size):
 
     # MLP Head
     network.add_module("input", nn.Linear(in_features=input_size, out_features=hidden_layer_size))
-    network.add_module("batchnorm", nn.BatchNorm1d(num_features=hidden_layer_size))
     network.add_module("relu", nn.ReLU())
     for i in range(num_hidden_layers - 1):
         network.add_module("hidden" + str(i), nn.Linear(hidden_layer_size, hidden_layer_size))
-        network.add_module("batchnorm" + str(i), nn.BatchNorm1d(num_features=hidden_layer_size))
         network.add_module("relu" + str(i), nn.ReLU())
     network.add_module("output", nn.Linear(hidden_layer_size, output_size))
     return network
