@@ -1,4 +1,5 @@
 from binascii import a2b_hex
+from unicodedata import name
 from matplotlib.pyplot import get
 import torch
 import torch.nn as nn
@@ -22,8 +23,8 @@ def f(i):
     
 f = np.vectorize(f)
 
-L = np.array([f(i) for i in range(1, 11)])
-L = np.array([int(np.round(f(i))) for i in range(1, 11)])
+L = np.array([f(i) for i in range(1, 16)])
+L = np.array([int(np.round(f(i))) for i in range(1, 16)])
 
 def getNetwork(input_size, output_size, num_hidden_layers, hidden_layer_size):
     network = nn.Sequential()
@@ -54,7 +55,7 @@ def getNetwork(input_size, output_size, num_hidden_layers, hidden_layer_size):
     network.add_module("output", nn.Linear(hidden_layer_size, output_size))
     return network
 
-# Nets 
+# Nets 1-20
 
 name1 = f'(i = 1): {L[0]}'
 net1 = getNetwork(input_size, c, 1, L[0])
@@ -86,11 +87,26 @@ net9 = getNetwork(input_size, c, 9, L[8])
 name10 = f'(i = 10): {L[9]}'
 net10 = getNetwork(input_size, c, 10, L[9])
 
+name11 = f'(i = 11): {L[10]}'
+net11 = getNetwork(input_size, c, 11, L[10])
+
+name12 = f'(i = 12): {L[11]}'
+net12 = getNetwork(input_size, c, 12, L[11])
+
+name13 = f'(i = 13): {L[12]}'
+net13 = getNetwork(input_size, c, 13, L[12])
+
+name14 = f'(i = 14): {L[13]}'
+net14 = getNetwork(input_size, c, 14, L[13])
+
+name15 = f'(i = 15): {L[14]}'
+net15 = getNetwork(input_size, c, 15, L[14])
+
 def getModels():
-    return [net1, net2, net3, net4, net5, net6, net7, net8, net9, net10]
+    return [net1, net2, net3, net4, net5, net6, net7, net8, net9, net10, net11, net12, net13, net14, net15]
 
 def getNames():
-    return [name1, name2, name3, name4, name5, name6, name7, name8, name9, name10]
+    return [name1, name2, name3, name4, name5, name6, name7, name8, name9, name10, name11, name12, name13, name14, name15]
 
 if __name__ == "__main__":
     models = getModels()

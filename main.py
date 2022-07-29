@@ -90,7 +90,7 @@ if __name__ == '__main__':
             if not opt.evaluate:
                 _ = model.train()
                 loss = train(train_dataloader=train_dataloader, model=model, model_name=model_name, criterion=criterion, optimizer=optimizer, opt=opt, epoch=epoch)
-                scheduler.step(loss)
+                scheduler.step()
             
         del model
         w.finish()
