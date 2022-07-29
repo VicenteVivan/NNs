@@ -1,3 +1,4 @@
+from binascii import a2b_hex
 from matplotlib.pyplot import get
 import torch
 import torch.nn as nn
@@ -6,9 +7,9 @@ import math
 
 # Convolutional LeNet CIFAR10 (2 Convolutions + Subsampling) Goes to 120 Fully Connected Layers Input size
 
-a = 2048
+a = 512
 c = 100
-P = 100_000_000
+P = 1_000_000
 
 # input_size = 1568
 input_size = 2048
@@ -41,15 +42,19 @@ def getNetwork(input_size, output_size, num_hidden_layers, hidden_layer_size):
     
     # Flatten 32 * 7 * 7
     network.add_module("flatten", nn.Flatten())
+    network.add_module("linear", nn.Linear(input_size, a))
 
     # MLP Head
-    network.add_module("input", nn.Linear(in_features=input_size, out_features=hidden_layer_size))
+    network.add_module("input", nn.Linear(in_features = a, out_features=hidden_layer_size))
     network.add_module("relu", nn.ReLU())
     for i in range(num_hidden_layers - 1):
         network.add_module("hidden" + str(i), nn.Linear(hidden_layer_size, hidden_layer_size))
+        network.add_module("batchnorm" + str(i), nn.BatchNorm1d(hidden_layer_size))
         network.add_module("relu" + str(i), nn.ReLU())
     network.add_module("output", nn.Linear(hidden_layer_size, output_size))
     return network
+
+# Nets 
 
 name1 = f'(i = 1): {L[0]}'
 net1 = getNetwork(input_size, c, 1, L[0])

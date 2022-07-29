@@ -69,7 +69,7 @@ if __name__ == '__main__':
     NN_Names = models.getNames()
 
     for i, (model, model_name) in enumerate(zip(NN_Models, NN_Names)):
-        w = wandb.init(project='Cifar100 BN',
+        w = wandb.init(project='Cifar100 Wt BN',
                        entity='vicentevivan',
                        reinit=True, 
                        config=config)
@@ -78,7 +78,7 @@ if __name__ == '__main__':
         
         model = model.to(opt.device)
         
-        optimizer = torch.optim.Adam(model.parameters(), lr=opt.lr)
+        optimizer = torch.optim.SGD(model.parameters(), lr=opt.lr, momentum=0.9)
         scheduler = torch.optim.lr_scheduler.StepLR(optimizer, step_size=10, gamma=0.5)
         
         _ = model.to(opt.device)
