@@ -57,7 +57,12 @@ def train(train_dataloader, model, model_name, criterion, optimizer, opt, epoch,
 
         preds = model(X)
         
-        loss = criterion(preds, y)
+        # Convert y (vector with indices of the correct class) to one-hot matrix
+        y_onehot = torch.zeros(preds.size(0), preds.size(1)).to(opt.device)
+        y_onehot.scatter_(1, y.unsqueeze(1), 1)
+        y_onehot = y_onehot.to(opt.device)
+        
+        loss = criterion(preds, y_onehot)
         loss.backward()
         optimizer.step()
 
@@ -95,16 +100,18 @@ def evaluate(val_dataloader, model, model_name, criterion, epoch, opt):
         with torch.no_grad():
             y_pred = model(X)
             
-        loss += criterion(y_pred, y)
+        # Convert y (vector with indices of the correct class) to one-hot matrix
+        y_onehot = torch.zeros(preds.size(0), preds.size(1)).to(opt.device)
+        y_onehot.scatter_(1, y.unsqueeze(1), 1)
+        y_onehot = y_onehot.to(opt.device)
+            
+        loss += criterion(y_pred, y_onehot)
         
         # Discretize the predictions
         y = y.detach().cpu().numpy()
         y_pred = y_pred.detach().cpu().numpy()
         
         y_pred = np.argmax(y_pred, axis=1)
-        
-        # y_pred = np.where(y_pred > 0, 1, 0)
-        # y_pred = np.where(y_pred == 0, -1, y_pred)
         
         # Save the predictions
         targets.append(y)

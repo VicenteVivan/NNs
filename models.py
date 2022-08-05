@@ -10,7 +10,7 @@ import math
 
 a = 512
 c = 100
-P = 100_000
+P = 1_000_000
 
 # input_size = 1568
 input_size = 2048
