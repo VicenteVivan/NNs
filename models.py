@@ -53,6 +53,7 @@ def getNetwork(input_size, output_size, num_hidden_layers, hidden_layer_size):
         network.add_module("batchnorm" + str(i), nn.BatchNorm1d(hidden_layer_size))
         network.add_module("relu" + str(i), nn.ReLU())
     network.add_module("output", nn.Linear(hidden_layer_size, output_size))
+    network.add_module("softmax", nn.Softmax(dim=1))
     return network
 
 # Nets 1-20
