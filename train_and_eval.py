@@ -58,7 +58,7 @@ def train(train_dataloader, model, model_name, criterion, optimizer, opt, epoch,
         preds = model(X)
         
         # Convert y (vector with indices of the correct class) to one-hot matrix
-        y_onehot = torch.zeros(y_preds.shape[0], y_preds.shape[1]).to(opt.device)
+        y_onehot = torch.zeros(preds.shape[0], preds    .shape[1]).to(opt.device)
         y_onehot.scatter_(1, y.unsqueeze(1), 1)
         y_onehot = y_onehot.to(opt.device)
         
@@ -101,7 +101,7 @@ def evaluate(val_dataloader, model, model_name, criterion, epoch, opt):
             y_pred = model(X)
             
         # Convert y (vector with indices of the correct class) to one-hot matrix
-        y_onehot = torch.zeros(y_preds.shape[0], y_preds.shape[1]).to(opt.device)
+        y_onehot = torch.zeros(y_pred.shape[0], y_pred.shape[1]).to(opt.device)
         y_onehot.scatter_(1, y.unsqueeze(1), 1)
         y_onehot = y_onehot.to(opt.device)
             
