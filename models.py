@@ -29,7 +29,7 @@ L = np.array([int(np.round(f(i))) for i in range(1, 16)])
 class ResMLPBlock(nn.Module):
     def __init__(self, hidden_size):
         super().__init__()
-        self.mlp = nn.Sequential(nn.Linear(input_size, hidden_size),
+        self.mlp = nn.Sequential(nn.Linear(hidden_size, hidden_size),
                                  nn.ReLU(),
                                  nn.Linear(hidden_size, hidden_size))
         
