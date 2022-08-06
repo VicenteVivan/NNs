@@ -60,7 +60,7 @@ def getNetwork(input_size, output_size, num_hidden_layers, hidden_layer_size):
     # MLP Head
     network.add_module("input", nn.Linear(in_features = a, out_features=hidden_layer_size))
     network.add_module("relu", nn.ReLU())
-    for i in range((num_hidden_layers - 1) / 2):
+    for i in range(int((num_hidden_layers - 1) / 2)):
         network.add_module("hidden" + str(i), ResMLPBlock(hidden_layer_size))
     network.add_module("output", nn.Linear(hidden_layer_size, output_size))
     network.add_module("softmax", nn.Softmax(dim=1))
