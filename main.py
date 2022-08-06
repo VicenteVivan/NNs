@@ -63,13 +63,14 @@ if __name__ == '__main__':
     # val_dataloader  = torch.utils.data.DataLoader(val_dataset, batch_size=opt.batch_size, shuffle=True)
     
     
-    criterion = nn.MSELoss()
+    # criterion = nn.MSELoss()
+    criterion = nn.CrossEntropyLoss()
 
     NN_Models = models.getModels()
     NN_Names = models.getNames()
 
     for i, (model, model_name) in enumerate(zip(NN_Models, NN_Names)):
-        w = wandb.init(project='CIFAR100 BN MSE 3',
+        w = wandb.init(project='CIFAR100 ResMLP',
                        entity='vicentevivan',
                        reinit=True, 
                        config=config)
@@ -78,7 +79,8 @@ if __name__ == '__main__':
         
         model = model.to(opt.device)
         
-        optimizer = torch.optim.Adam(model.parameters(), lr=opt.lr)
+        # optimizer = torch.optim.Adam(model.parameters(), lr=opt.lr)
+        optimizer = torch.optim.SGD(model.parameters(), lr=opt.lr, momentum=0.9)
         scheduler = torch.optim.lr_scheduler.StepLR(optimizer, step_size=10, gamma=0.5)
         
         _ = model.to(opt.device)
@@ -90,7 +92,7 @@ if __name__ == '__main__':
             if not opt.evaluate:
                 _ = model.train()
                 loss = train(train_dataloader=train_dataloader, model=model, model_name=model_name, criterion=criterion, optimizer=optimizer, opt=opt, epoch=epoch)
-                #scheduler.step()
+                scheduler.step()
             
         del model
         w.finish()
