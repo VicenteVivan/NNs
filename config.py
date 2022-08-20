@@ -19,10 +19,10 @@ def getopt():
     opt.archname = 'Sequential NN'
     opt.evaluate = False
 
-    opt.lr = 0.001
+    opt.lr = 0.01
     opt.step_size = 3
 
-    opt.batch_size = 32
+    opt.batch_size = 64
     opt.trainset = 'SD2_train'
     opt.testset = 'SD2_test'
     opt.device = torch.device('cuda')
