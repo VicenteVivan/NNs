@@ -10,7 +10,7 @@ import math
 
 a = 512
 c = 100
-P = 10_000_000
+P = 1_000_000
 
 # input_size = 1568
 input_size = 2048
@@ -23,7 +23,7 @@ def f(i):
 
 f = np.vectorize(f)
 
-L = np.array([(0 + 1), (2 + 1), (4 + 1), (8 + 1), (16 + 1), (32 + 1), (64 + 1), (128 + 1), (256 + 1)])
+L = np.array([(0 + 1), (2 + 1), (4 + 1), (8 + 1), (16 + 1), (32 + 1), (64 + 1), (128 + 1)])
 L = np.array([int(np.round(f(i))) for i in L])
 
 class ResMLPBlock(nn.Module):
