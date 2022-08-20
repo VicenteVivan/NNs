@@ -15,14 +15,14 @@ def getopt():
 
     opt.n_epochs = 200
 
-    opt.description = '1M'
+    opt.description = '10M'
     opt.archname = 'Sequential NN'
     opt.evaluate = False
 
     opt.lr = 0.01
     opt.step_size = 3
 
-    opt.batch_size = 64
+    opt.batch_size = 32
     opt.trainset = 'SD2_train'
     opt.testset = 'SD2_test'
     opt.device = torch.device('cuda')
