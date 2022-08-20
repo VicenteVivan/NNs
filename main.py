@@ -79,8 +79,8 @@ if __name__ == '__main__':
         
         model = model.to(opt.device)
         
-        optimizer = torch.optim.Adam(model.parameters(), lr=opt.lr)
-        # optimizer = torch.optim.SGD(model.parameters(), lr=opt.lr, momentum=0.9)
+        # optimizer = torch.optim.Adam(model.parameters(), lr=opt.lr)
+        optimizer = torch.optim.SGD(model.parameters(), lr=opt.lr, momentum=0.9)
         scheduler = torch.optim.lr_scheduler.StepLR(optimizer, step_size=10, gamma=0.5)
         
         _ = model.to(opt.device)

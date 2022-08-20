@@ -23,7 +23,7 @@ def f(i):
 
 f = np.vectorize(f)
 
-L = np.array([(0 + 1), (2 + 1), (4 + 1), (8 + 1), (16 + 1), (32 + 1), (64 + 1), (128 + 1), (256 + 1), (512 + 1)])
+L = np.array([(0 + 1), (2 + 1), (4 + 1), (8 + 1), (16 + 1), (32 + 1), (64 + 1), (128 + 1), (256 + 1)])
 L = np.array([int(np.round(f(i))) for i in L])
 
 class ResMLPBlock(nn.Module):
@@ -98,16 +98,13 @@ net8 = getNetwork(input_size, c, 129, L[7])
 name9 = f'(i = 256): {L[8]}'
 net9 = getNetwork(input_size, c, 257, L[8])
 
-name10 = f'(i = 512): {L[9]}'
-net10 = getNetwork(input_size, c, 513, L[9])
-
 def getModels():
-    return [net10, net9, net8, net7, net6, net5, net4, net3, net2, net1]
+    return [net9, net8, net7, net6, net5, net4, net3, net2, net1]
     #return [net1, net2, net3, net4, net5, net6, net7, net8, net9, net10]
 
 
 def getNames():
-    return [name10, name9, name8, name7, name6, name5, name4, name3, name2, name1]
+    return [name9, name8, name7, name6, name5, name4, name3, name2, name1]
     #return [name1, name2, name3, name4, name5, name6, name7, name8, name9, name10]
 
 if __name__ == "__main__":
