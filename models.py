@@ -107,7 +107,7 @@ def getModels():
 
 
 def getNames():
-    return [net10, net9, name8, name7, name6, name5, name4, name3, name2, name1]
+    return [name10, name9, name8, name7, name6, name5, name4, name3, name2, name1]
     #return [name1, name2, name3, name4, name5, name6, name7, name8, name9, name10]
 
 if __name__ == "__main__":
