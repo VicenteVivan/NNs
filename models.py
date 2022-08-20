@@ -29,16 +29,12 @@ L = np.array([int(np.round(f(i))) for i in L])
 class ResMLPBlock(nn.Module):
     def __init__(self, hidden_size):
         super().__init__()
-        self.batch_norm1 = nn.BatchNorm1d(hidden_size)
-        self.batch_norm2 = nn.BatchNorm1d(hidden_size)
         self.mlp = nn.Sequential(nn.Linear(hidden_size, hidden_size),
-                                 self.batch_norm1,
                                  nn.ReLU(),
                                  nn.Linear(hidden_size, hidden_size))
         
     def forward(self, x):
         x = self.mlp(x) + x
-        x = self.batch_norm2(x)
         x = nn.ReLU()(x)
         return x
 
