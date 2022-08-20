@@ -23,8 +23,8 @@ def f(i):
 
 f = np.vectorize(f)
 
-L = np.array([(0 + 1), (2 + 1), (4 + 1), (8 + 1), (16 + 1), (32 + 1), (64 + 1), (128 + 1)])
-L = np.array([int(np.round(f(i))) for i in range(1, 16)])
+L = np.array([(0 + 1), (2 + 1), (4 + 1), (8 + 1), (16 + 1), (32 + 1), (64 + 1), (128 + 1), (256 + 1), (512 + 1)])
+L = np.array([int(np.round(f(i))) for i in L])
 
 class ResMLPBlock(nn.Module):
     def __init__(self, hidden_size):
