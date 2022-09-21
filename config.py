@@ -13,14 +13,14 @@ def getopt():
 
     opt.size = 224
 
-    opt.n_epochs = 200
+    opt.n_epochs = 100
 
     opt.description = '10M'
     opt.archname = 'Sequential NN'
     opt.evaluate = False
 
-    opt.lr = 0.01
-    opt.step_size = 3
+    opt.lr = 0.001
+    opt.step_size = 5
 
     opt.batch_size = 32
     opt.trainset = 'SD2_train'

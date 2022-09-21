@@ -9,8 +9,8 @@ import math
 # Convolutional LeNet CIFAR10 (2 Convolutions + Subsampling) Goes to 120 Fully Connected Layers Input size
 
 a = 512
-c = 100
-P = 1_000_000
+c = 10
+P = 10_000_000
 
 # input_size = 1568
 input_size = 2048
@@ -23,7 +23,7 @@ def f(i):
 
 f = np.vectorize(f)
 
-L = np.array([(0 + 1), (2 + 1), (4 + 1), (8 + 1), (16 + 1), (32 + 1), (64 + 1)])
+L = np.array([(0 + 1), (2 + 1), (4 + 1), (8 + 1), (16 + 1), (32 + 1), (64 + 1), (128 + 1)])
 L = np.array([int(np.round(f(i))) for i in L])
 
 class ResMLPBlock(nn.Module):
@@ -62,6 +62,8 @@ def getNetwork(input_size, output_size, num_hidden_layers, hidden_layer_size):
     network.add_module("relu", nn.ReLU())
     for i in range(int((num_hidden_layers - 1) / 2)):
         network.add_module("hidden" + str(i), ResMLPBlock(hidden_layer_size))
+        network.add_module("batchnorm" + str(i), nn.BatchNorm1d(hidden_layer_size))
+
     network.add_module("output", nn.Linear(hidden_layer_size, output_size))
     return network
 
@@ -88,13 +90,16 @@ net6 = getNetwork(input_size, c, 33, L[5])
 name7 = f'(i = 64): {L[6]}'
 net7 = getNetwork(input_size, c, 65, L[6])
 
+name8 = f'(i = 128): {L[7]}'
+net8 = getNetwork(input_size, c, 129, L[7])
+
 def getModels():
-    return [net7, net6, net5, net4, net3, net2, net1]
+    return [net8, net7, net6, net5, net4, net3, net2, net1]
     #return [net1, net2, net3, net4, net5, net6, net7, net8, net9, net10]
 
 
 def getNames():
-    return [name7, name6, name5, name4, name3, name2, name1]
+    return [name8, name7, name6, name5, name4, name3, name2, name1]
     #return [name1, name2, name3, name4, name5, name6, name7, name8, name9, name10]
 
 if __name__ == "__main__":
