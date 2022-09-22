@@ -15,11 +15,11 @@ def getopt():
 
     opt.n_epochs = 100
 
-    opt.description = '10M'
+    opt.description = '1M'
     opt.archname = 'Sequential NN'
     opt.evaluate = False
 
-    opt.lr = 0.001
+    opt.lr = 0.01
     opt.step_size = 5
 
     opt.batch_size = 32
