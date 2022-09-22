@@ -19,7 +19,7 @@ def getopt():
     opt.archname = 'Sequential NN'
     opt.evaluate = False
 
-    opt.lr = 0.01
+    opt.lr = 0.0003
     opt.step_size = 5
 
     opt.batch_size = 32
