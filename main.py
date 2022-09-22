@@ -70,7 +70,7 @@ if __name__ == '__main__':
     NN_Names = models.getNames()
 
     for i, (model, model_name) in enumerate(zip(NN_Models, NN_Names)):
-        w = wandb.init(project='CIFAR10 No-ResMLP MSE 1M',
+        w = wandb.init(project='CIFAR10 ResMLP MSE 1M',
                        entity='vicentevivan',
                        settings=wandb.Settings(start_method='fork'),
                        reinit=True, 

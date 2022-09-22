@@ -34,7 +34,7 @@ class ResMLPBlock(nn.Module):
                                  nn.Linear(hidden_size, hidden_size))
         
     def forward(self, x):
-        x = self.mlp(x) # + x
+        x = self.mlp(x) + x
         x = nn.ReLU()(x)
         return x
 
