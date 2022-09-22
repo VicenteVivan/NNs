@@ -62,7 +62,7 @@ def train(train_dataloader, model, model_name, criterion, optimizer, opt, epoch,
         # y_onehot.scatter_(1, y.unsqueeze(1), 1)
         # y_onehot = y_onehot.to(opt.device)
         
-        loss = criterion(preds, y_onehot)
+        loss = criterion(preds, y)
         loss.backward()
         optimizer.step()
 
@@ -105,7 +105,7 @@ def evaluate(val_dataloader, model, model_name, criterion, epoch, opt):
         # y_onehot.scatter_(1, y.unsqueeze(1), 1)
         # y_onehot = y_onehot.to(opt.device)
             
-        loss += criterion(y_pred, y_onehot)
+        loss += criterion(y_pred)
         
         # Discretize the predictions
         y = y.detach().cpu().numpy()
