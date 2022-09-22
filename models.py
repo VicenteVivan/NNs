@@ -64,6 +64,9 @@ def getNetwork(input_size, output_size, num_hidden_layers, hidden_layer_size):
         network.add_module("hidden" + str(i), ResMLPBlock(hidden_layer_size))
 
     network.add_module("output", nn.Linear(hidden_layer_size, output_size))
+    
+    # Sigmoid 
+    network.add_module("sigmoid", nn.Sigmoid())
     return network
 
 # Nets 1-20

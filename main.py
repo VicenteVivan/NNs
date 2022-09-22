@@ -63,14 +63,14 @@ if __name__ == '__main__':
     # val_dataloader  = torch.utils.data.DataLoader(val_dataset, batch_size=opt.batch_size, shuffle=True)
     
     
-    # criterion = nn.MSELoss()
-    criterion = nn.CrossEntropyLoss()
+    criterion = nn.MSELoss()
+    # criterion = nn.CrossEntropyLoss()
 
     NN_Models = models.getModels()
     NN_Names = models.getNames()
 
     for i, (model, model_name) in enumerate(zip(NN_Models, NN_Names)):
-        w = wandb.init(project='CIFAR10 ResMLP CE 10M',
+        w = wandb.init(project='CIFAR10 ResMLP MSE 10M',
                        entity='vicentevivan',
                        settings=wandb.Settings(start_method='fork'),
                        reinit=True, 
